@@ -29,3 +29,23 @@ export interface StockData {
   latestDevelopments: string[];
   currentPrice: string;
 }
+
+export interface CisLunarCompany {
+  name: string;
+  tier: 1 | 2 | 3;
+  tierName: 'Execution Anchors' | 'Contracted Implementers' | 'Disruptive Innovators';
+  riskProfile: string;
+  trl: string;
+  characteristics: string;
+  description: string;
+  segment?: string; // e.g., "Earth-to-Lunar Access", "Power & Energy", etc.
+}
+
+export interface CisLunarTier {
+  tier: number;
+  name: string;
+  riskProfile: string;
+  trl: string;
+  characteristics: string;
+  companies: CisLunarCompany[];
+}

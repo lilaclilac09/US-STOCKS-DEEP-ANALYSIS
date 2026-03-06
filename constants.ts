@@ -1,5 +1,5 @@
 
-import { StockData } from './types';
+import { StockData, CisLunarTier } from './types';
 
 export const STOCKS: StockData[] = [
   {
@@ -126,3 +126,391 @@ export const STOCKS: StockData[] = [
 ];
 
 export const ARK_HOLDER_NOTE = "As of Jan 2026, none of these stocks are core holdings in Cathie Wood's ARK funds (top holdings: TSLA, CRSP, ROKU, COIN, TEM, PLTR, etc.).";
+
+// Cis-Lunar Space Economy Market Map
+export const CISLUNAR_TIERS: CisLunarTier[] = [
+  {
+    tier: 1,
+    name: 'Execution Anchors',
+    riskProfile: 'Low risk',
+    trl: 'TRL 9',
+    characteristics: 'Proven at scale • Multi-$B backlog',
+    companies: [
+      {
+        name: 'SpaceX',
+        tier: 1,
+        tierName: 'Execution Anchors',
+        riskProfile: 'Low risk',
+        trl: 'TRL 9',
+        characteristics: 'Proven at scale • Multi-$B backlog',
+        description: 'Dominant provider of Earth-to-lunar access and landing systems via Starship.',
+        segment: 'Earth-to-Lunar Access'
+      },
+      {
+        name: 'BWX Technologies',
+        tier: 1,
+        tierName: 'Execution Anchors',
+        riskProfile: 'Low risk',
+        trl: 'TRL 9',
+        characteristics: 'Proven at scale • Multi-$B backlog',
+        description: 'Supplies nuclear reactors and advanced power systems for lunar surface operations.',
+        segment: 'Power & Energy'
+      },
+      {
+        name: 'RTX/Collins',
+        tier: 1,
+        tierName: 'Execution Anchors',
+        riskProfile: 'Low risk',
+        trl: 'TRL 9',
+        characteristics: 'Proven at scale • Multi-$B backlog',
+        description: 'Delivers power, energy, thermal control, and life support systems for habitats.',
+        segment: 'Power & Energy / Habitats'
+      },
+      {
+        name: 'SpaceX Starlink',
+        tier: 1,
+        tierName: 'Execution Anchors',
+        riskProfile: 'Low risk',
+        trl: 'TRL 9',
+        characteristics: 'Proven at scale • Multi-$B backlog',
+        description: 'Provides cislunar communications and navigation constellation.',
+        segment: 'Communications/Navigation'
+      },
+      {
+        name: 'L3Harris',
+        tier: 1,
+        tierName: 'Execution Anchors',
+        riskProfile: 'Low risk',
+        trl: 'TRL 9',
+        characteristics: 'Proven at scale • Multi-$B backlog',
+        description: 'Leading supplier of communications, navigation, and PNT infrastructure.',
+        segment: 'Communications/Navigation'
+      },
+      {
+        name: 'Lockheed Martin',
+        tier: 1,
+        tierName: 'Execution Anchors',
+        riskProfile: 'Low risk',
+        trl: 'TRL 9',
+        characteristics: 'Proven at scale • Multi-$B backlog',
+        description: 'Develops habitats, life support, and surface construction platforms.',
+        segment: 'Habitats'
+      }
+    ]
+  },
+  {
+    tier: 2,
+    name: 'Contracted Implementers',
+    riskProfile: 'Medium risk',
+    trl: 'TRL 7-9',
+    characteristics: 'Contracts won • Near-term revenue',
+    companies: [
+      {
+        name: 'Blue Origin',
+        tier: 2,
+        tierName: 'Contracted Implementers',
+        riskProfile: 'Medium risk',
+        trl: 'TRL 7-9',
+        characteristics: 'Contracts won • Near-term revenue',
+        description: 'New Glenn launcher and Blue Moon lander for lunar cargo and crewed landings.',
+        segment: 'Earth-to-Lunar Access'
+      },
+      {
+        name: 'Northrop Grumman',
+        tier: 2,
+        tierName: 'Contracted Implementers',
+        riskProfile: 'Medium risk',
+        trl: 'TRL 7-9',
+        characteristics: 'Contracts won • Near-term revenue',
+        description: 'Lunar landers, habitats, and in-space logistics systems.',
+        segment: 'Cislunar Mobility / Habitats'
+      },
+      {
+        name: 'Firefly',
+        tier: 2,
+        tierName: 'Contracted Implementers',
+        riskProfile: 'Medium risk',
+        trl: 'TRL 7-9',
+        characteristics: 'Contracts won • Near-term revenue',
+        description: 'Blue Ghost lunar lander and small-to-medium launch vehicles.',
+        segment: 'Earth-to-Lunar Access'
+      },
+      {
+        name: 'Intuitive Machines',
+        tier: 2,
+        tierName: 'Contracted Implementers',
+        riskProfile: 'Medium risk',
+        trl: 'TRL 7-9',
+        characteristics: 'Contracts won • Near-term revenue',
+        description: 'Nova-C landers, communications relay, polar ice ISRU, and data services.',
+        segment: 'Earth-to-Lunar Access / ISRU & Mining'
+      },
+      {
+        name: 'Rocket Lab',
+        tier: 2,
+        tierName: 'Contracted Implementers',
+        riskProfile: 'Medium risk',
+        trl: 'TRL 7-9',
+        characteristics: 'Contracts won • Near-term revenue',
+        description: 'Electron and Neutron launch vehicles plus lunar payload delivery.',
+        segment: 'Earth-to-Lunar Access'
+      },
+      {
+        name: 'Impulse Space',
+        tier: 2,
+        tierName: 'Contracted Implementers',
+        riskProfile: 'Medium risk',
+        trl: 'TRL 7-9',
+        characteristics: 'Contracts won • Near-term revenue',
+        description: 'High-performance in-space mobility and logistics vehicles (Mira/Helios).',
+        segment: 'Cislunar Mobility'
+      },
+      {
+        name: 'Redwire',
+        tier: 2,
+        tierName: 'Contracted Implementers',
+        riskProfile: 'Medium risk',
+        trl: 'TRL 7-9',
+        characteristics: 'Contracts won • Near-term revenue',
+        description: 'Solar arrays, power systems, and regolith processing hardware.',
+        segment: 'Power & Energy / ISRU & Mining'
+      },
+      {
+        name: 'Westinghouse',
+        tier: 2,
+        tierName: 'Contracted Implementers',
+        riskProfile: 'Medium risk',
+        trl: 'TRL 7-9',
+        characteristics: 'Contracts won • Near-term revenue',
+        description: 'Advanced nuclear and power systems for lunar bases.',
+        segment: 'Power & Energy'
+      },
+      {
+        name: 'Maxar/Adventure',
+        tier: 2,
+        tierName: 'Contracted Implementers',
+        riskProfile: 'Medium risk',
+        trl: 'TRL 7-9',
+        characteristics: 'Contracts won • Near-term revenue',
+        description: 'Robotics, power systems, and in-space manufacturing platforms.',
+        segment: 'Robotics/Surface Mobility & Manufacturing'
+      },
+      {
+        name: 'Nokia',
+        tier: 2,
+        tierName: 'Contracted Implementers',
+        riskProfile: 'Medium risk',
+        trl: 'TRL 7-9',
+        characteristics: 'Contracts won • Near-term revenue',
+        description: 'Lunar 4G/5G communications networks.',
+        segment: 'Communications/Navigation'
+      },
+      {
+        name: 'Axiom Space',
+        tier: 2,
+        tierName: 'Contracted Implementers',
+        riskProfile: 'Medium risk',
+        trl: 'TRL 7-9',
+        characteristics: 'Contracts won • Near-term revenue',
+        description: 'Commercial habitats and lunar surface infrastructure.',
+        segment: 'Habitats'
+      },
+      {
+        name: 'Sierra Space',
+        tier: 2,
+        tierName: 'Contracted Implementers',
+        riskProfile: 'Medium risk',
+        trl: 'TRL 7-9',
+        characteristics: 'Contracts won • Near-term revenue',
+        description: 'Inflatable LIFE habitats and Dream Chaser for lunar logistics.',
+        segment: 'Habitats / Cislunar Mobility'
+      },
+      {
+        name: 'Vast',
+        tier: 2,
+        tierName: 'Contracted Implementers',
+        riskProfile: 'Medium risk',
+        trl: 'TRL 7-9',
+        characteristics: 'Contracts won • Near-term revenue',
+        description: 'Commercial space stations and long-duration habitats.',
+        segment: 'Habitats'
+      },
+      {
+        name: 'Honeybee Robotics',
+        tier: 2,
+        tierName: 'Contracted Implementers',
+        riskProfile: 'Medium risk',
+        trl: 'TRL 7-9',
+        characteristics: 'Contracts won • Near-term revenue',
+        description: 'Robotic drills and tools for lunar ice and regolith extraction.',
+        segment: 'ISRU & Mining / Robotics'
+      },
+      {
+        name: 'General Motors',
+        tier: 2,
+        tierName: 'Contracted Implementers',
+        riskProfile: 'Medium risk',
+        trl: 'TRL 7-9',
+        characteristics: 'Contracts won • Near-term revenue',
+        description: 'Lunar rover development and surface mobility platforms.',
+        segment: 'Robotics/Surface Mobility & Manufacturing'
+      },
+      {
+        name: 'Venturi Astrolab',
+        tier: 2,
+        tierName: 'Contracted Implementers',
+        riskProfile: 'Medium risk',
+        trl: 'TRL 7-9',
+        characteristics: 'Contracts won • Near-term revenue',
+        description: 'Lunar rovers and autonomous surface mobility systems.',
+        segment: 'Robotics/Surface Mobility & Manufacturing'
+      },
+      {
+        name: 'Motiv Space Systems',
+        tier: 2,
+        tierName: 'Contracted Implementers',
+        riskProfile: 'Medium risk',
+        trl: 'TRL 7-9',
+        characteristics: 'Contracts won • Near-term revenue',
+        description: 'Robotic arms and mobility platforms for lunar operations.',
+        segment: 'Robotics/Surface Mobility & Manufacturing'
+      },
+      {
+        name: 'PickNik Robotics',
+        tier: 2,
+        tierName: 'Contracted Implementers',
+        riskProfile: 'Medium risk',
+        trl: 'TRL 7-9',
+        characteristics: 'Contracts won • Near-term revenue',
+        description: 'Advanced robotic software and manipulation systems.',
+        segment: 'Robotics/Surface Mobility & Manufacturing'
+      },
+      {
+        name: 'Tesla',
+        tier: 2,
+        tierName: 'Contracted Implementers',
+        riskProfile: 'Medium risk',
+        trl: 'TRL 7-9',
+        characteristics: 'Contracts won • Near-term revenue',
+        description: 'Humanoid robots and surface mobility technology for lunar manufacturing.',
+        segment: 'Robotics/Surface Mobility & Manufacturing'
+      }
+    ]
+  },
+  {
+    tier: 3,
+    name: 'Disruptive Innovators',
+    riskProfile: 'Higher risk',
+    trl: 'TRL 4-7',
+    characteristics: 'High asymmetric upside • Private alpha',
+    companies: [
+      {
+        name: 'Stoke Space',
+        tier: 3,
+        tierName: 'Disruptive Innovators',
+        riskProfile: 'Higher risk',
+        trl: 'TRL 4-7',
+        characteristics: 'High asymmetric upside • Private alpha',
+        description: 'Fully reusable launch system for rapid, low-cost Earth-to-lunar access.',
+        segment: 'Earth-to-Lunar Access'
+      },
+      {
+        name: 'Relativity Space',
+        tier: 3,
+        tierName: 'Disruptive Innovators',
+        riskProfile: 'Higher risk',
+        trl: 'TRL 4-7',
+        characteristics: 'High asymmetric upside • Private alpha',
+        description: '3D-printed Terran R rockets for cost-effective lunar missions.',
+        segment: 'Earth-to-Lunar Access'
+      },
+      {
+        name: 'Portal Space',
+        tier: 3,
+        tierName: 'Disruptive Innovators',
+        riskProfile: 'Higher risk',
+        trl: 'TRL 4-7',
+        characteristics: 'High asymmetric upside • Private alpha',
+        description: 'Specialized cislunar mobility and logistics vehicles.',
+        segment: 'Cislunar Mobility'
+      },
+      {
+        name: 'Zeno Power',
+        tier: 3,
+        tierName: 'Disruptive Innovators',
+        riskProfile: 'Higher risk',
+        trl: 'TRL 4-7',
+        characteristics: 'High asymmetric upside • Private alpha',
+        description: 'Radioisotope nuclear batteries for long-duration lunar power.',
+        segment: 'Power & Energy'
+      },
+      {
+        name: 'Virtus Solis',
+        tier: 3,
+        tierName: 'Disruptive Innovators',
+        riskProfile: 'Higher risk',
+        trl: 'TRL 4-7',
+        characteristics: 'High asymmetric upside • Private alpha',
+        description: 'Space-based solar power systems for continuous cislunar energy.',
+        segment: 'Power & Energy'
+      },
+      {
+        name: 'Interlune',
+        tier: 3,
+        tierName: 'Disruptive Innovators',
+        riskProfile: 'Higher risk',
+        trl: 'TRL 4-7',
+        characteristics: 'High asymmetric upside • Private alpha',
+        description: 'Helium-3 mining for fusion and quantum computing applications.',
+        segment: 'ISRU & Mining'
+      },
+      {
+        name: 'Helios',
+        tier: 3,
+        tierName: 'Disruptive Innovators',
+        riskProfile: 'Higher risk',
+        trl: 'TRL 4-7',
+        characteristics: 'High asymmetric upside • Private alpha',
+        description: 'Molten Regolith Electrolysis for oxygen and metal extraction from lunar soil.',
+        segment: 'ISRU & Mining'
+      },
+      {
+        name: 'Lunar Outpost',
+        tier: 3,
+        tierName: 'Disruptive Innovators',
+        riskProfile: 'Higher risk',
+        trl: 'TRL 4-7',
+        characteristics: 'High asymmetric upside • Private alpha',
+        description: 'Autonomous rovers and robotic mining platforms.',
+        segment: 'Robotics/Surface Mobility & Manufacturing / ISRU & Mining'
+      },
+      {
+        name: 'OffWorld',
+        tier: 3,
+        tierName: 'Disruptive Innovators',
+        riskProfile: 'Higher risk',
+        trl: 'TRL 4-7',
+        characteristics: 'High asymmetric upside • Private alpha',
+        description: 'Industrial-scale robotic mining systems for lunar resources.',
+        segment: 'Robotics/Surface Mobility & Manufacturing / ISRU & Mining'
+      },
+      {
+        name: 'GITAI',
+        tier: 3,
+        tierName: 'Disruptive Innovators',
+        riskProfile: 'Higher risk',
+        trl: 'TRL 4-7',
+        characteristics: 'High asymmetric upside • Private alpha',
+        description: 'General-purpose humanoid and robotic systems for in-space assembly.',
+        segment: 'Robotics/Surface Mobility & Manufacturing'
+      }
+    ]
+  }
+];
+
+// Quick lookup by company name
+export const CISLUNAR_COMPANIES_MAP = new Map(
+  CISLUNAR_TIERS.flatMap(tier => 
+    tier.companies.map(company => [company.name, company])
+  )
+);
