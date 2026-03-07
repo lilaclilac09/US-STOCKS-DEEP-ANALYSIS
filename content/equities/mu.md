@@ -1,7 +1,7 @@
 ---
 ticker: MU
 name: Micron Technology
-updated: 2026-03-07T15:18:07.923308
+updated: 2026-03-07T15:19:15.420794
 close_price: $327.02
 sector: Semiconductors
 revenue: N/A
@@ -25,4 +25,4 @@ No developments yet.
 
 ---
 
-*Last updated: 2026-03-07T15:18:07.923308*
+*Last updated: 2026-03-07T15:19:15.420794*

@@ -1,7 +1,7 @@
 ---
 ticker: RCL
 name: Royal Caribbean Group
-updated: 2026-03-07T15:18:07.922666
+updated: 2026-03-07T15:19:15.420223
 close_price: $304.33
 sector: Travel & Leisure
 revenue: 17.9 billion
@@ -25,4 +25,4 @@ Growth equity in Travel & Leisure sector.
 
 ---
 
-*Last updated: 2026-03-07T15:18:07.922666*
+*Last updated: 2026-03-07T15:19:15.420223*

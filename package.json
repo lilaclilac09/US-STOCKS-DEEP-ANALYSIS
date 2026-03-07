@@ -11,6 +11,10 @@
     "content": "node scripts/manage-content.mjs",
     "data:refresh": "node scripts/data-refresh.mjs",
     "alerts:check": "node scripts/price-alerts.mjs",
+    "update:fundamentals": "python3 scripts/fetch-fundamentals.py",
+    "update:cislunar": "python3 scripts/fetch-cislunar.py",
+    "update:content": "python3 scripts/generate-markdown.py",
+    "update:all": "npm run update:fundamentals && npm run update:cislunar && npm run update:content",
     "build:prod": "npm run validate:data && vite build",
     "deploy:pages": "npm run build:prod"
   },

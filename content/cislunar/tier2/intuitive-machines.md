@@ -2,7 +2,7 @@
 company: Intuitive Machines
 tier: 2
 segment: Lunar Landers & Delivery
-updated: 2026-03-07T15:18:18.553505
+updated: 2026-03-07T15:19:26.173402
 ---
 
 ## Overview
@@ -24,4 +24,4 @@ Lunar Landers & Delivery
 
 ---
 
-*Last updated: 2026-03-07T15:18:18.553505*
+*Last updated: 2026-03-07T15:19:26.173402*

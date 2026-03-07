@@ -39,12 +39,32 @@ jobs:
       - name: Validate data
         run: npm run validate:data
 
-      - name: Commit refreshed data
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: pip install requests beautifulsoup4
+
+      - name: Fetch equity fundamentals
+        run: python3 scripts/fetch-fundamentals.py
+        continue-on-error: true
+
+      - name: Fetch cislunar mission data
+        run: python3 scripts/fetch-cislunar.py
+        continue-on-error: true
+
+      - name: Generate Markdown files
+        run: python3 scripts/generate-markdown.py
+        continue-on-error: true
+
+      - name: Commit refreshed data and generated Markdown
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add data/*.json
-          git diff --cached --quiet || git commit -m "ops: automated data refresh"
+          git add data/*.json content/**/*.md
+          git diff --cached --quiet || git commit -m "ops: automated data refresh with generated content ($(date +%Y-%m-%d))"
           git push
 
   deploy:

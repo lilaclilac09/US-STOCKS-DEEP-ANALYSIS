@@ -1,7 +1,7 @@
 ---
 ticker: HLT
 name: Hilton Worldwide
-updated: 2026-03-07T15:18:07.923317
+updated: 2026-03-07T15:19:15.420799
 close_price: $298.33
 sector: Hotels
 revenue: N/A
@@ -25,4 +25,4 @@ No developments yet.
 
 ---
 
-*Last updated: 2026-03-07T15:18:07.923317*
+*Last updated: 2026-03-07T15:19:15.420799*

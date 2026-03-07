@@ -35,6 +35,59 @@ This file is your day-to-day workflow for upgrading the site whenever you want t
 1. Refresh prices from enabled providers: `npm run data:refresh`
 2. Run threshold alerts: `npm run alerts:check`
 
+## Automated Data Pipeline
+
+The pipeline automatically fetches and updates equity fundamentals and cislunar mission data, generating Markdown files for each company.
+
+### Schedule (GitHub Actions)
+- **Daily at 12 PM UTC** (weekdays): Price refresh from enabled sources
+- **Weekly (Monday 8 AM UTC)**: Full fundamentals refresh (RCL, MU, LLY, MAR, HLT) + Markdown generation
+- **Monthly (1st day 9 AM UTC)**: Cislunar mission data refresh + Markdown generation
+
+### Manual Trigger
+1. **Run full refresh locally**:
+	```bash
+	python3 scripts/fetch-fundamentals.py  # Fetch all equity data
+	python3 scripts/fetch-cislunar.py      # Fetch NASA CLPS missions
+	python3 scripts/generate-markdown.py   # Generate content/*.md files
+	```
+
+2. **Refresh single equity data**:
+	```bash
+	python3 scripts/fetch-fundamentals.py --ticker RCL --output data/fundamentals.json
+	```
+
+3. **Trigger GitHub Actions manually**:
+	- Go to Actions tab → "data-refresh-and-deploy" → "Run workflow"
+	- This will run all fetchers, generate Markdown, and commit changes
+
+4. **Advanced: Custom pipeline**:
+	```bash
+	# Fetch fresh data
+	python3 scripts/fetch-fundamentals.py
+	python3 scripts/fetch-cislunar.py
+   
+	# Generate Markdown from updated data
+	python3 scripts/generate-markdown.py --output-dir content/
+   
+	# Review changes and commit
+	git diff content/
+	git add content/ data/
+	git commit -m "docs: update equity and cislunar content"
+	git push
+	```
+
+### Output Structure
+- **Fundamentals**: `data/fundamentals.json` (revenue, EPS, guidance, latest news)
+- **Cislunar**: `data/cislunar.json` (mission providers, landing sites, 2026 targets)
+- **Equity Docs**: `content/equities/{ticker}.md` (auto-generated from fundamentals)
+- **Cislunar Docs**: `content/cislunar/tier{1,2,3}/*.md` (mission providers by tier)
+
+### Editing Generated Content
+- Markdown files are AI-editable; Cursor/Claude can regenerate or tweak
+- React app reads from JSON (`data/companies.json`, `constants.ts`), not Markdown
+- To update live app data, modify JSON files or use `npm run content` CLI
+
 ## Publish Release
 1. `npm run validate:data`
 2. `npm run build:prod`
