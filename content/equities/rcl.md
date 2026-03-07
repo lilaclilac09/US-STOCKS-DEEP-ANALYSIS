@@ -1,30 +1,28 @@
 ---
 ticker: RCL
 name: Royal Caribbean Group
-updated: 2026-03-07T00:00:00
+updated: 2026-03-07T15:17:24.086367
 close_price: $304.33
 sector: Travel & Leisure
-revenue: 17.9 billion (2025)
-net_profit: 15.64 (adjusted EPS 2025)
-eps_guidance: 17.70 to 18.10 (2026)
+revenue: 17.9 billion
+net_profit: 15.64
+eps_guidance: 17.70 to 18.10
 ---
 
 ## Business Overview
 
-Royal Caribbean Group is a global cruise operator with high occupancy recovery and strong 2026 guidance.
+Growth equity in Travel & Leisure sector.
 
 ## Financial Highlights
 
-* **Revenue**: 17.9 billion (2025)
-* **Net Profit**: Adjusted EPS 15.64 (2025)
+* **Revenue**: 17.9 billion
+* **Net Profit**: 15.64
 * **EPS Guidance (2026)**: 17.70 to 18.10
 
 ## Latest Developments
 
-- 2026 EPS guidance issued at 17.70–18.10
-- WAVE season showing record start (early bookings)
-- High leverage but stable with strong occupancy
+2026 EPS guidance $17.70–$18.10; WAVE season record start
 
 ---
 
-*Last updated: 2026-03-07T00:00:00*
+*Last updated: 2026-03-07T15:17:24.086367*
