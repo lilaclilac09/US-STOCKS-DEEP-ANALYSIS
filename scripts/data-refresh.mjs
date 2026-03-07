@@ -75,12 +75,40 @@ async function fetchFromAlphaVantage(source, symbols) {
   return prices;
 }
 
+async function fetchFromPolygon(source, symbols) {
+  const apiKey = getApiKeyForSource(source);
+  if (!apiKey) {
+    throw new Error('Missing API key env for Polygon source');
+  }
+
+  const prices = new Map();
+  for (const symbol of symbols) {
+    const url = `${source.endpoint}/aggs/ticker/${encodeURIComponent(symbol)}/prev?adjusted=true&apiKey=${encodeURIComponent(apiKey)}`;
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Polygon request failed for ${symbol}: ${response.status}`);
+    }
+    const payload = await response.json();
+    if (payload.results && payload.results.length > 0) {
+      const close = parsePrice(payload.results[0].c);
+      if (close !== null) {
+        prices.set(symbol, close);
+      }
+    }
+  }
+
+  return prices;
+}
+
 async function fetchPricesForSource(source, symbols) {
   if (source.id === 'fmp') {
     return fetchFromFmp(source, symbols);
   }
   if (source.id === 'alpha_vantage') {
     return fetchFromAlphaVantage(source, symbols);
+  }
+  if (source.id === 'polygon') {
+    return fetchFromPolygon(source, symbols);
   }
 
   throw new Error(`No connector implemented for source id: ${source.id}`);

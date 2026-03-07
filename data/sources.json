@@ -32,6 +32,23 @@
         "close": "Time Series (Daily).*.4. close"
       },
       "healthNotes": "Rate-limited; use for low-frequency fallback"
+    },
+    {
+      "id": "polygon",
+      "name": "Polygon.io",
+      "type": "daily_aggregates",
+      "endpoint": "https://api.polygon.io/v1",
+      "refreshCron": "0 11 * * 1-5",
+      "enabled": false,
+      "status": "planned",
+      "auth": "apiKey",
+      "apiKeyEnv": "POLYGON_API_KEY",
+      "mapping": {
+        "symbol": "ticker",
+        "close": "results[0].c",
+        "volume": "results[0].v"
+      },
+      "healthNotes": "Real-time aggregates via previous trading day endpoint"
     }
   ]
 }
