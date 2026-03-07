@@ -3,19 +3,22 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { STOCKS as INITIAL_STOCKS, CISLUNAR_TIERS } from './constants';
 import StockCard from './components/StockCard';
 import SpaceCompanyCard from './components/SpaceCompanyCard';
-import { StockData } from './types';
+import { StockData, CisLunarTier } from './types';
 import { analyzeStock } from './services/analysisService';
+import { getCompanies, getCisLunarCompanies } from './src/api/payload';
 
 const App: React.FC = () => {
   const [stocks, setStocks] = useState<StockData[]>(INITIAL_STOCKS);
+  const [cislunarTiers, setCislunarTiers] = useState<CisLunarTier[]>(CISLUNAR_TIERS);
+  const [dataSource, setDataSource] = useState<'json' | 'payload'>('json');
   const [activeSymbol, setActiveSymbol] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<'all' | 'stocks' | 'space'>('all');
   const spaceCompanies = useMemo(
-    () => CISLUNAR_TIERS.flatMap((tier) => tier.companies),
-    []
+    () => cislunarTiers.flatMap((tier) => tier.companies),
+    [cislunarTiers]
   );
 
   useEffect(() => {
@@ -32,7 +35,7 @@ const App: React.FC = () => {
         }
       }
 
-      for (const tier of CISLUNAR_TIERS) {
+      for (const tier of cislunarTiers) {
         const element = document.getElementById(`tier-${tier.tier}`);
         if (element) {
           const { offsetTop, offsetHeight } = element;
@@ -45,7 +48,28 @@ const App: React.FC = () => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [stocks]);
+  }, [stocks, cislunarTiers]);
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const payloadStocks = await getCompanies();
+        if (payloadStocks && payloadStocks.length > 0) {
+          setStocks(payloadStocks);
+          setDataSource('payload');
+        }
+
+        const payloadCislunar = await getCisLunarCompanies();
+        if (payloadCislunar && payloadCislunar.length > 0) {
+          setCislunarTiers(payloadCislunar);
+        }
+      } catch {
+        setDataSource('json');
+      }
+    };
+
+    loadData();
+  }, []);
 
   const handleAddStock = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -260,7 +284,7 @@ const App: React.FC = () => {
               </div>
             </section>
 
-            {CISLUNAR_TIERS.map((tier) => (
+             {cislunarTiers.map((tier) => (
               <div key={tier.tier} className="mb-14" id={`tier-${tier.tier}`}>
                 <section className="mb-8 bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100">
                   <div className="bg-slate-900 px-6 py-6 md:px-10">
