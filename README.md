@@ -35,10 +35,13 @@ Run the admin CLI:
 - `npm run content -- --help`
 
 Workflow docs:
-- `WORKFLOW.md`
-- `CONTENT_WORKFLOW.md`
-- `AGENT_WORKFLOW.md`
-- `OPERATIONS.md`
+- **[HOW_TO.md](HOW_TO.md)** — Quick start guide for common tasks
+- `DEPLOYMENT.md` — Full deployment runbook
+- `WORKFLOW.md` — Day-to-day operations
+- `CONTENT_WORKFLOW.md` — Content governance
+- `AGENT_WORKFLOW.md` — Agent integration
+- `OPERATIONS.md` — Incident handling
+- `TODO.md` — Launch checklist
 
 ## Automation
 
