@@ -1,0 +1,45 @@
+version: 1
+name: finance-site-admin-ops
+
+ops:
+  - id: add_company
+    description: Add a new tracked company
+    required:
+      - symbol
+      - fullName
+      - sector
+    optional:
+      - currentPrice
+      - tags
+      - notes
+
+  - id: update_company_price
+    description: Update latest known price for a tracked company
+    required:
+      - symbol
+      - currentPrice
+
+  - id: deactivate_company
+    description: Mark company as inactive without deleting record
+    required:
+      - symbol
+
+  - id: add_index
+    description: Register a benchmark index
+    required:
+      - id
+      - name
+      - provider
+
+  - id: register_source
+    description: Register a market data source connector
+    required:
+      - id
+      - name
+      - type
+      - endpoint
+
+  - id: deprecate_source
+    description: Mark an existing data source as deprecated
+    required:
+      - id

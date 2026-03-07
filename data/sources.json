@@ -1,0 +1,37 @@
+{
+  "sources": [
+    {
+      "id": "fmp",
+      "name": "Financial Modeling Prep",
+      "type": "price_and_fundamentals",
+      "endpoint": "https://financialmodelingprep.com/api/v3",
+      "refreshCron": "0 11 * * 1-5",
+      "enabled": false,
+      "status": "planned",
+      "auth": "apiKey",
+      "apiKeyEnv": "FMP_API_KEY",
+      "mapping": {
+        "symbol": "symbol",
+        "price": "price",
+        "marketCap": "marketCap"
+      },
+      "healthNotes": "Enable once API key is configured in GitHub Secrets"
+    },
+    {
+      "id": "alpha_vantage",
+      "name": "Alpha Vantage",
+      "type": "daily_prices",
+      "endpoint": "https://www.alphavantage.co/query",
+      "refreshCron": "15 11 * * 1-5",
+      "enabled": false,
+      "status": "planned",
+      "auth": "apiKey",
+      "apiKeyEnv": "ALPHA_VANTAGE_API_KEY",
+      "mapping": {
+        "symbol": "Meta Data.2. Symbol",
+        "close": "Time Series (Daily).*.4. close"
+      },
+      "healthNotes": "Rate-limited; use for low-frequency fallback"
+    }
+  ]
+}
