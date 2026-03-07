@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "payload dev",
+    "dev": "tsx watch server.ts",
     "build": "payload build",
     "start": "node dist/server.js",
     "payload": "payload",

@@ -1,13 +1,13 @@
-import { buildConfig } from 'payload/config';
+import { buildConfig } from 'payload';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
 // Collections
-import Companies from './collections/Companies.js';
-import CisLunarCompanies from './collections/CisLunarCompanies.js';
-import DataSources from './collections/DataSources.js';
-import Indexes from './collections/Indexes.js';
-import Users from './collections/Users.js';
+import Companies from './collections/Companies';
+import CisLunarCompanies from './collections/CisLunarCompanies';
+import DataSources from './collections/DataSources';
+import Indexes from './collections/Indexes';
+import Users from './collections/Users';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
