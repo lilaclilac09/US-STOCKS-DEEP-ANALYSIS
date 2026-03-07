@@ -125,9 +125,52 @@ def generate_equity_markdown(companies_data, fundamentals_data, output_dir):
 
 
 def generate_cislunar_markdown(cislunar_data, output_dir):
-    """Generate Markdown files for cislunar companies (placeholder)"""
-    # TODO: Implement cislunar Markdown generation once data structure is finalized
-    print("(Cislunar Markdown generation - TODO)")
+    """Generate Markdown files for cislunar companies and missions"""
+    missions = cislunar_data.get("missions", {})
+    deliveries = cislunar_data.get("deliveries", {})
+    
+    # Map tier structure: Tier 1 = major players, Tier 2 = delivery contractors, Tier 3 = emerging
+    tier_mapping = {
+        "SpaceX": ("tier1", "Launch & Cislunar Transport"),
+        "Lockheed Martin": ("tier1", "Spacecraft & Infrastructure"),
+        "Intuitive Machines": ("tier2", "Lunar Landers & Delivery"),
+        "Firefly Aerospace": ("tier2", "Lunar Landers"),
+        "Axiom Space": ("tier3", "Lunar Habitats & Modules"),
+        "Draper": ("tier2", "Precision Landing"),
+        "Astrobotic": ("tier2", "Lunar Logistics"),
+    }
+    
+    # Generate markdown for each mission/company
+    for company, mission_data in missions.items():
+        tier_dir, segment = tier_mapping.get(company, ("tier3", "Cislunar Provider"))
+        tier_path = Path(output_dir) / "cislunar" / tier_dir
+        tier_path.mkdir(parents=True, exist_ok=True)
+        
+        # Find matching deliveries for this company
+        company_deliveries = []
+        for delivery_id, delivery_info in deliveries.items():
+            if company.lower() in delivery_info.get("company", "").lower():
+                company_deliveries.append(f"- {delivery_id}: {delivery_info.get('site', '')} ({delivery_info.get('target_date', 'TBD')})")
+        
+        deliveries_text = "\n".join(company_deliveries) if company_deliveries else "- Active development for lunar missions"
+        
+        md_content = CISLUNAR_TEMPLATE.format(
+            company=company,
+            tier=tier_dir.replace("tier", ""),
+            segment=segment,
+            updated=cislunar_data.get("last_updated", datetime.now().isoformat()),
+            description=f"{company} is a key player in cislunar infrastructure and lunar delivery services.",
+            cislunar_role=segment,
+            awards=f"- Active CLPS or LDAC provider\n- Status: {mission_data.get('status', 'Active')}",
+            target_missions=deliveries_text,
+        )
+        
+        company_slug = company.lower().replace(" ", "-")
+        file_path = tier_path / f"{company_slug}.md"
+        with open(file_path, 'w') as f:
+            f.write(md_content)
+        
+        print(f"✓ Generated {file_path}")
 
 
 def main():

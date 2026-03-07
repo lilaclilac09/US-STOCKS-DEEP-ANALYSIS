@@ -1,7 +1,7 @@
 ---
 ticker: MAR
 name: Marriott International
-updated: 2026-03-07T15:17:26.548984
+updated: 2026-03-07T15:18:07.923316
 close_price: $324.91
 sector: Hotels
 revenue: N/A
@@ -25,4 +25,4 @@ No developments yet.
 
 ---
 
-*Last updated: 2026-03-07T15:17:26.548984*
+*Last updated: 2026-03-07T15:18:07.923316*
