@@ -16,7 +16,7 @@
     "update:content": "python3 scripts/generate-markdown.py",
     "update:all": "npm run update:fundamentals && npm run update:cislunar && npm run update:content",
     "build:prod": "npm run validate:data && vite build",
-    "deploy:pages": "npm run build:prod"
+    "deploy:pages": "npm run build:prod",
     "payload:dev": "cd payload && npm run dev",
     "migrate:data": "node scripts/migrate-to-payload.mjs",
     "setup:payload": "cd payload && npm install && cp .env.example .env.local"
