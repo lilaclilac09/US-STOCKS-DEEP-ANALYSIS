@@ -1,0 +1,71 @@
+{
+  "companies": [
+    {
+      "symbol": "RCL",
+      "fullName": "Royal Caribbean Group",
+      "sector": "Travel & Leisure",
+      "currentPrice": "$304.33",
+      "status": "active",
+      "tags": [
+        "cruise",
+        "global"
+      ],
+      "notes": "High leverage, strong occupancy recovery",
+      "lastRefreshedAt": "2026-03-07T06:12:49.926Z"
+    },
+    {
+      "symbol": "MU",
+      "fullName": "Micron Technology",
+      "sector": "Semiconductors",
+      "currentPrice": "$327.02",
+      "status": "active",
+      "tags": [
+        "memory",
+        "AI",
+        "HBM"
+      ],
+      "notes": "HBM demand and capex cycle",
+      "lastRefreshedAt": "2026-03-07T06:12:49.926Z"
+    },
+    {
+      "symbol": "LLY",
+      "fullName": "Eli Lilly and Company",
+      "sector": "Healthcare",
+      "currentPrice": "$1085.19",
+      "status": "active",
+      "tags": [
+        "pharma",
+        "obesity",
+        "metabolic"
+      ],
+      "notes": "Incretin-led growth",
+      "lastRefreshedAt": "2026-03-07T06:12:49.926Z"
+    },
+    {
+      "symbol": "MAR",
+      "fullName": "Marriott International",
+      "sector": "Hotels",
+      "currentPrice": "$324.91",
+      "status": "active",
+      "tags": [
+        "asset-light",
+        "travel"
+      ],
+      "notes": "Strong pipeline expansion",
+      "lastRefreshedAt": "2026-03-07T06:12:49.926Z"
+    },
+    {
+      "symbol": "HLT",
+      "fullName": "Hilton Worldwide",
+      "sector": "Hotels",
+      "currentPrice": "$298.33",
+      "status": "active",
+      "tags": [
+        "franchise",
+        "lifestyle"
+      ],
+      "notes": "Buyback support",
+      "lastRefreshedAt": "2026-03-07T06:12:49.926Z"
+    }
+  ]
+}

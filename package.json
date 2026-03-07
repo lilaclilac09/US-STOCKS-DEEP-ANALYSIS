@@ -6,7 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "validate:data": "node scripts/validate-data.mjs",
+    "content": "node scripts/manage-content.mjs",
+    "data:refresh": "node scripts/data-refresh.mjs",
+    "alerts:check": "node scripts/price-alerts.mjs",
+    "build:prod": "npm run validate:data && vite build",
+    "deploy:pages": "npm run build:prod"
   },
   "dependencies": {
     "react": "^19.2.3",

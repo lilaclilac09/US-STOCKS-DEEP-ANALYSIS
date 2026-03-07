@@ -1,0 +1,28 @@
+name: price-alerts
+
+on:
+  schedule:
+    - cron: '*/30 13-20 * * 1-5'
+  workflow_dispatch:
+
+jobs:
+  alerts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run alert detection
+        run: node scripts/price-alerts.mjs
+        env:
+          PRICE_ALERT_THRESHOLD_PCT: "5"
+          PRICE_ALERT_WEBHOOK: ${{ secrets.PRICE_ALERT_WEBHOOK }}

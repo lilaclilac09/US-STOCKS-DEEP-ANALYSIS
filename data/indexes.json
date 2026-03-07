@@ -1,0 +1,25 @@
+{
+  "indexes": [
+    {
+      "id": "sp500",
+      "name": "S&P 500",
+      "provider": "SPDJI",
+      "status": "tracked",
+      "description": "Large-cap US equities benchmark"
+    },
+    {
+      "id": "nasdaq100",
+      "name": "NASDAQ-100",
+      "provider": "Nasdaq",
+      "status": "tracked",
+      "description": "Largest non-financial Nasdaq listed companies"
+    },
+    {
+      "id": "russell2000",
+      "name": "Russell 2000",
+      "provider": "FTSE Russell",
+      "status": "watch",
+      "description": "Small-cap US equities benchmark"
+    }
+  ]
+}

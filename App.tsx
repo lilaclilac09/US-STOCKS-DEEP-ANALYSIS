@@ -1,8 +1,8 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { STOCKS as INITIAL_STOCKS, CISLUNAR_TIERS } from './constants';
 import StockCard from './components/StockCard';
-import CisLunarCard from './components/CisLunarCard';
+import SpaceCompanyCard from './components/SpaceCompanyCard';
 import { StockData } from './types';
 import { analyzeStock } from './services/analysisService';
 
@@ -12,7 +12,11 @@ const App: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const stocksEndRef = useRef<HTMLDivElement>(null);
+  const [viewMode, setViewMode] = useState<'all' | 'stocks' | 'space'>('all');
+  const spaceCompanies = useMemo(
+    () => CISLUNAR_TIERS.flatMap((tier) => tier.companies),
+    []
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +27,17 @@ const App: React.FC = () => {
           const { offsetTop, offsetHeight } = element;
           if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
             setActiveSymbol(stock.symbol);
+            break;
+          }
+        }
+      }
+
+      for (const tier of CISLUNAR_TIERS) {
+        const element = document.getElementById(`tier-${tier.tier}`);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSymbol(`T${tier.tier}`);
             break;
           }
         }
@@ -84,19 +99,31 @@ const App: React.FC = () => {
             <div className="w-px bg-slate-700 mx-1"></div>
             <a
               href="#tier-1"
-              className="px-3 py-1 rounded-full text-xs font-bold transition-all text-emerald-400 hover:text-white hover:bg-slate-800 border border-emerald-500/50"
+              className={`px-3 py-1 rounded-full text-xs font-bold transition-all border ${
+                activeSymbol === 'T1'
+                  ? 'bg-emerald-500/20 text-white border-emerald-400'
+                  : 'text-emerald-400 hover:text-white hover:bg-slate-800 border-emerald-500/50'
+              }`}
             >
               🌙 T1
             </a>
             <a
               href="#tier-2"
-              className="px-3 py-1 rounded-full text-xs font-bold transition-all text-blue-400 hover:text-white hover:bg-slate-800 border border-blue-500/50"
+              className={`px-3 py-1 rounded-full text-xs font-bold transition-all border ${
+                activeSymbol === 'T2'
+                  ? 'bg-blue-500/20 text-white border-blue-400'
+                  : 'text-blue-400 hover:text-white hover:bg-slate-800 border-blue-500/50'
+              }`}
             >
               🌙 T2
             </a>
             <a
               href="#tier-3"
-              className="px-3 py-1 rounded-full text-xs font-bold transition-all text-purple-400 hover:text-white hover:bg-slate-800 border border-purple-500/50"
+              className={`px-3 py-1 rounded-full text-xs font-bold transition-all border ${
+                activeSymbol === 'T3'
+                  ? 'bg-purple-500/20 text-white border-purple-400'
+                  : 'text-purple-400 hover:text-white hover:bg-slate-800 border-purple-500/50'
+              }`}
             >
               🌙 T3
             </a>
@@ -113,6 +140,42 @@ const App: React.FC = () => {
           <p className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto font-medium mb-12">
             Professional equity research and cis-lunar market intelligence for high-potential growth assets.
           </p>
+
+          <div className="flex justify-center gap-2 mb-8">
+            <button
+              type="button"
+              onClick={() => setViewMode('all')}
+              className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all ${
+                viewMode === 'all'
+                  ? 'bg-indigo-600 text-white shadow-lg'
+                  : 'bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700'
+              }`}
+            >
+              All Coverage
+            </button>
+            <button
+              type="button"
+              onClick={() => setViewMode('stocks')}
+              className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all ${
+                viewMode === 'stocks'
+                  ? 'bg-indigo-600 text-white shadow-lg'
+                  : 'bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700'
+              }`}
+            >
+              Equity View
+            </button>
+            <button
+              type="button"
+              onClick={() => setViewMode('space')}
+              className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all ${
+                viewMode === 'space'
+                  ? 'bg-indigo-600 text-white shadow-lg'
+                  : 'bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700'
+              }`}
+            >
+              Space View
+            </button>
+          </div>
 
           <form onSubmit={handleAddStock} className="max-w-md mx-auto relative">
             <div className="relative">
@@ -143,77 +206,89 @@ const App: React.FC = () => {
 
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 -mt-12 pb-20 relative z-10">
-        {/* Traditional Stocks Section */}
-        <div className="space-y-12">
-          {stocks.map((stock) => (
-            <div key={stock.symbol} id={stock.symbol} className="scroll-mt-24">
-              <StockCard data={stock} />
-            </div>
-          ))}
+        {(viewMode === 'all' || viewMode === 'stocks') && (
+          <div className="space-y-12">
+            {stocks.map((stock) => (
+              <div key={stock.symbol} id={stock.symbol} className="scroll-mt-24">
+                <StockCard data={stock} />
+              </div>
+            ))}
 
-          {isAnalyzing && (
-            <div className="animate-pulse bg-white rounded-2xl p-10 shadow-xl border border-slate-100 flex flex-col items-center justify-center space-y-4">
-               <div className="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center">
+            {isAnalyzing && (
+              <div className="animate-pulse bg-white rounded-2xl p-10 shadow-xl border border-slate-100 flex flex-col items-center justify-center space-y-4">
+                <div className="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center">
                   <i className="fa-solid fa-microchip text-slate-300 text-3xl animate-bounce"></i>
-               </div>
-               <div className="text-center">
+                </div>
+                <div className="text-center">
                   <h3 className="text-xl font-bold text-slate-800">Generating AI Analysis</h3>
                   <p className="text-slate-400 text-sm">Processing 2026 market projections and financial benchmarks...</p>
-               </div>
-               <div className="w-full h-4 bg-slate-100 rounded-full overflow-hidden">
+                </div>
+                <div className="w-full h-4 bg-slate-100 rounded-full overflow-hidden">
                   <div className="h-full bg-indigo-500 w-1/3 animate-[progress_2s_infinite]"></div>
-               </div>
-            </div>
-          )}
-        </div>
-
-        {/* Cis-Lunar Space Economy Section */}
-        <div className="mt-24 pt-12 border-t-4 border-slate-700">
-          <div className="mb-12 text-center">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
-              Cis-Lunar <span className="text-cyan-400">Space Economy</span>
-            </h2>
-            <p className="text-slate-400 text-lg max-w-3xl mx-auto">
-              Professional market map of lunar economy companies organized by execution maturity, technology readiness, and asymmetric upside potential.
-            </p>
+                </div>
+              </div>
+            )}
           </div>
+        )}
 
-          {CISLUNAR_TIERS.map((tier) => (
-            <div key={tier.tier} className="mb-16" id={`tier-${tier.tier}`}>
-              <div className="mb-8 bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700">
-                <div className="flex items-start justify-between flex-wrap gap-4">
-                  <div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                      Tier {tier.tier} – {tier.name}
-                    </h3>
-                    <p className="text-slate-300 text-sm">
-                      {tier.riskProfile} • {tier.trl} • {tier.characteristics}
-                    </p>
+        {(viewMode === 'all' || viewMode === 'space') && (
+          <div className={`${viewMode === 'all' ? 'mt-24 pt-12 border-t-4 border-slate-700' : ''}`}>
+            <section className="mb-12 bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100">
+              <div className="bg-slate-900 px-6 py-6 md:px-10">
+                <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+                  Cis-Lunar Space Economy <span className="text-slate-400 font-light">-</span> Company Research Framework
+                </h2>
+              </div>
+              <div className="p-6 md:p-10">
+                <div className="grid md:grid-cols-3 gap-4">
+                  <div className="bg-slate-50 border border-slate-100 rounded-xl p-4">
+                    <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Coverage</p>
+                    <p className="text-2xl font-black text-slate-900">{spaceCompanies.length}</p>
+                    <p className="text-xs text-slate-500">Companies Tracked</p>
                   </div>
-                  <div className="bg-slate-900/50 px-4 py-2 rounded-lg border border-slate-600">
-                    <span className="text-slate-400 text-xs uppercase tracking-wider">Companies</span>
-                    <div className="text-2xl font-bold text-white">{tier.companies.length}</div>
+                  <div className="bg-slate-50 border border-slate-100 rounded-xl p-4">
+                    <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Tier Structure</p>
+                    <p className="text-2xl font-black text-slate-900">3</p>
+                    <p className="text-xs text-slate-500">Execution Anchors to Disruptors</p>
+                  </div>
+                  <div className="bg-slate-50 border border-slate-100 rounded-xl p-4">
+                    <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Domains</p>
+                    <p className="text-2xl font-black text-slate-900">8+</p>
+                    <p className="text-xs text-slate-500">Access, Mobility, ISRU, Power, Comms, Habitats</p>
                   </div>
                 </div>
               </div>
+            </section>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {tier.companies.map((company) => (
-                  <CisLunarCard key={company.name} company={company} />
-                ))}
+            {CISLUNAR_TIERS.map((tier) => (
+              <div key={tier.tier} className="mb-14" id={`tier-${tier.tier}`}>
+                <section className="mb-8 bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100">
+                  <div className="bg-slate-900 px-6 py-6 md:px-10">
+                    <h3 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
+                      Tier {tier.tier} <span className="text-slate-400 font-light">-</span> {tier.name}
+                    </h3>
+                  </div>
+                  <div className="p-6 md:p-8 bg-slate-50 border-t border-slate-100 flex items-center justify-between gap-3 flex-wrap">
+                    <p className="text-slate-600 font-semibold text-sm">{tier.riskProfile} • {tier.trl} • {tier.characteristics}</p>
+                    <span className="text-xs font-bold uppercase tracking-widest text-indigo-600">{tier.companies.length} Companies</span>
+                  </div>
+                </section>
+
+                <div>
+                  {tier.companies.map((company) => (
+                    <SpaceCompanyCard key={company.name} company={company} />
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </main>
 
       {/* Footer */}
       <footer className="bg-white border-t border-slate-200 py-10 mt-12">
         <div className="max-w-5xl mx-auto px-4 text-center">
-          <p className="text-slate-400 text-sm font-medium">
-            Generated on Jan 9, 2026 | Powered by Gemini 3 Deep Reasoning
-          </p>
-          <div className="mt-4 text-slate-300 text-[10px] uppercase tracking-widest">
+          <div className="text-slate-300 text-[10px] uppercase tracking-widest">
             Investment research dashboard — Equities & Cis-Lunar Space Economy — Dynamic Data Enabled
           </div>
         </div>
