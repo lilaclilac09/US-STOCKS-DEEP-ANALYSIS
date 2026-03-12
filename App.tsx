@@ -1,21 +1,40 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
-import axios from 'axios';
-import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautiful-dnd';
 import { CISLUNAR_TIERS } from './constants';
 import StockCard from './components/StockCard';
 import SpaceCompanyCard from './components/SpaceCompanyCard';
 import { StockData, CisLunarTier } from './types';
-import { analyzeStock } from './services/analysisService';
-import { getCompanies, getCisLunarCompanies } from './src/api/payload';
-import {
-  getWatchlist,
-  addToWatchlist,
-  removeFromWatchlist,
-  updateWatchlistOrder
-} from './src/api/supabase';
+import { fetchStocks, fetchStockDetail } from './services/dataService';
+import { CategoryProvider, useCategories } from './contexts/CategoryContext';
+import { DndContext, closestCenter } from '@dnd-kit/core';
+import { SortableContext, horizontalListSortingStrategy } from '@dnd-kit/sortable';
+import CategoryModal from './components/CategoryModal';
+import SortableItem from './components/SortableItem';
+import { AlertProvider, useAlerts } from './contexts/AlertContext';
+import toast, { Toaster } from 'react-hot-toast';
+import { CategoryProvider, useCategories } from './contexts/CategoryContext';
+import { DndContext, closestCenter } from '@dnd-kit/core';
+import { SortableContext, horizontalListSortingStrategy } from '@dnd-kit/sortable';
+import CategoryModal from './components/CategoryModal';
+import SortableItem from './components/SortableItem';
+import { AlertProvider, useAlerts } from './contexts/AlertContext';
+import toast, { Toaster } from 'react-hot-toast';
 
-const App: React.FC = () => {
+function MainAppContent() {
+    // --- 股票警报通知系统集成 ---
+    const { checkAlerts } = useAlerts();
+
+    useEffect(() => {
+      const interval = setInterval(() => {
+        checkAlerts(stocks);
+      }, 30_000);
+      if (Notification.permission === 'default') {
+        Notification.requestPermission();
+      }
+      return () => clearInterval(interval);
+    }, [stocks]);
+  const { categories, handleDragEnd, isModalOpen, setIsModalOpen, addCategory } = useCategories();
+  const [currentView, setCurrentView] = useState<'all' | 'equity' | 'space' | string>('all');
   const [stocks, setStocks] = useState<StockData[]>([]);
   const [watchlist, setWatchlist] = useState<any[]>([]); // Supabase watchlist
   const [cislunarTiers, setCislunarTiers] = useState<CisLunarTier[]>(CISLUNAR_TIERS);
@@ -101,26 +120,11 @@ const App: React.FC = () => {
 
   // 初始化拉取 watchlist 并分析股票数据
   useEffect(() => {
-    const loadWatchlist = async () => {
-      try {
-        const wl = await getWatchlist();
-        setWatchlist(wl);
-        // 拉取每个 symbol 的详细数据
-        const stockDatas = await Promise.all(
-          wl.map(async (item: any) => {
-            try {
-              return await analyzeStock(item.symbol);
-            } catch {
-              return null;
-            }
-          })
-        );
-        setStocks(stockDatas.filter(Boolean));
-      } catch (err) {
-        setError('Failed to load watchlist');
-      }
+    const loadData = async () => {
+      const data = await fetchStocks();
+      setStocks(data);
     };
-    loadWatchlist();
+    loadData();
   }, []);
 
   // 添加自选股（Supabase）
@@ -193,60 +197,60 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Header */}
+      {/* Header with draggable categories */}
       <header className="bg-slate-900 text-white sticky top-0 z-50 shadow-lg border-b border-slate-800">
         <div className="max-w-5xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
           <h1 className="text-xl md:text-2xl font-black tracking-tighter uppercase">
             US Stocks <span className="text-indigo-400">Deep Analysis</span>
           </h1>
           <nav className="flex flex-wrap justify-center gap-2">
-            {stocks.map((stock) => (
-              <a
-                key={stock.symbol}
-                href={`#${stock.symbol}`}
-                className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${
-                  activeSymbol === stock.symbol
-                    ? 'bg-indigo-500 text-white shadow-md'
-                    : 'text-slate-400 hover:text-white hover:bg-slate-800'
-                }`}
-              >
-                {stock.symbol}
-              </a>
-            ))}
-            <div className="w-px bg-slate-700 mx-1"></div>
-            <a
-              href="#tier-1"
-              className={`px-3 py-1 rounded-full text-xs font-bold transition-all border ${
-                activeSymbol === 'T1'
-                  ? 'bg-emerald-500/20 text-white border-emerald-400'
-                  : 'text-emerald-400 hover:text-white hover:bg-slate-800 border-emerald-500/50'
-              }`}
+            <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+              <SortableContext items={categories.map(c => c.id)} strategy={horizontalListSortingStrategy}>
+                {categories.map((category) => (
+                  <SortableItem key={category.id} id={category.id}>
+                    <button
+                      onClick={() => setCurrentView(category.id)}
+                      className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${
+                        currentView === category.id
+                          ? 'bg-indigo-500 text-white shadow-md'
+                          : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                      }`}
+                    >
+                      {category.name}
+                    </button>
+                  </SortableItem>
+                ))}
+              </SortableContext>
+            </DndContext>
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-600 hover:bg-emerald-700"
             >
-              🌙 T1
-            </a>
-            <a
-              href="#tier-2"
-              className={`px-3 py-1 rounded-full text-xs font-bold transition-all border ${
-                activeSymbol === 'T2'
-                  ? 'bg-blue-500/20 text-white border-blue-400'
-                  : 'text-blue-400 hover:text-white hover:bg-slate-800 border-blue-500/50'
-              }`}
-            >
-              🌙 T2
-            </a>
-            <a
-              href="#tier-3"
-              className={`px-3 py-1 rounded-full text-xs font-bold transition-all border ${
-                activeSymbol === 'T3'
-                  ? 'bg-purple-500/20 text-white border-purple-400'
-                  : 'text-purple-400 hover:text-white hover:bg-slate-800 border-purple-500/50'
-              }`}
-            >
-              🌙 T3
-            </a>
+              + 新分类
+            </button>
           </nav>
         </div>
       </header>
+      {/* ...existing code... */}
+      <CategoryModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onAdd={addCategory}
+      />
+      <Toaster position="top-center" toastOptions={{ duration: 4000 }} />
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <AlertProvider>
+      <CategoryProvider>
+        <MainAppContent />
+      </CategoryProvider>
+    </AlertProvider>
+  );
+}
 
       {/* Hero Banner with Search */}
       <div className="bg-slate-900 text-white pt-16 pb-24 px-4">
@@ -469,12 +473,7 @@ const App: React.FC = () => {
         </div>
       </footer>
 
-      <style>{`
-        @keyframes progress {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(300%); }
-        }
-      `}</style>
+      {/* 进度条动画样式已移至全局 CSS */}
     </div>
   );
 };
