@@ -4,7 +4,7 @@
  */
 
 const PAYLOAD_API_URL =
-  process.env.VITE_PAYLOAD_API_URL || 'http://localhost:3001/api';
+  import.meta.env.VITE_PAYLOAD_API_URL || 'http://localhost:3001/api';
 
 interface FetchOptions {
   useFallback?: boolean;
