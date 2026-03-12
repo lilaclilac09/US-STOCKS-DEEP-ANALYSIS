@@ -59,3 +59,5 @@ ENV/
 *.tmp
 data/fundamentals.json
 data/cislunar.json
+.vercel
+.env*.local
