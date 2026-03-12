@@ -1,3 +1,24 @@
+# Supabase 数据库表结构建议
+
+## 1. watchlist（自选股）
+| 字段名   | 类型      | 说明         |
+|----------|-----------|--------------|
+| id       | int8      | 主键         |
+| symbol   | text      | 股票代码     |
+| meta     | jsonb     | 其他元数据   |
+| order    | int4      | 排序         |
+| created_at | timestamptz | 创建时间 |
+
+## 2. stock_cache（行情与指标缓存）
+| 字段名   | 类型      | 说明         |
+|----------|-----------|--------------|
+| id       | int8      | 主键         |
+| symbol   | text      | 股票代码     |
+| data     | jsonb     | 缓存内容     |
+| updated_at | timestamptz | 更新时间 |
+
+---
+请在 Supabase 控制台建表，字段可根据实际 UI 需求扩展。
 <div align="center">
 <img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
