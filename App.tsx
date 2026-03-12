@@ -12,13 +12,6 @@ import CategoryModal from './components/CategoryModal';
 import SortableItem from './components/SortableItem';
 import { AlertProvider, useAlerts } from './contexts/AlertContext';
 import toast, { Toaster } from 'react-hot-toast';
-import { CategoryProvider, useCategories } from './contexts/CategoryContext';
-import { DndContext, closestCenter } from '@dnd-kit/core';
-import { SortableContext, horizontalListSortingStrategy } from '@dnd-kit/sortable';
-import CategoryModal from './components/CategoryModal';
-import SortableItem from './components/SortableItem';
-import { AlertProvider, useAlerts } from './contexts/AlertContext';
-import toast, { Toaster } from 'react-hot-toast';
 
 function MainAppContent() {
     // --- 股票警报通知系统集成 ---
@@ -472,10 +465,9 @@ export default function App() {
           </div>
         </div>
       </footer>
-
-      {/* 进度条动画样式已移至全局 CSS */}
     </div>
   );
-};
+}
+// 进度条动画样式已移至全局 CSS
 
 export default App;
