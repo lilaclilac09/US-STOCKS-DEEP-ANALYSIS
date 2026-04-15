@@ -1,71 +1,44 @@
 {
   "companies": [
-    {
-      "symbol": "RCL",
-      "fullName": "Royal Caribbean Group",
-      "sector": "Travel & Leisure",
-      "currentPrice": "$304.33",
-      "status": "active",
-      "tags": [
-        "cruise",
-        "global"
-      ],
-      "notes": "High leverage, strong occupancy recovery",
-      "lastRefreshedAt": "2026-03-07T06:12:49.926Z"
-    },
-    {
-      "symbol": "MU",
-      "fullName": "Micron Technology",
-      "sector": "Semiconductors",
-      "currentPrice": "$327.02",
-      "status": "active",
-      "tags": [
-        "memory",
-        "AI",
-        "HBM"
-      ],
-      "notes": "HBM demand and capex cycle",
-      "lastRefreshedAt": "2026-03-07T06:12:49.926Z"
-    },
-    {
-      "symbol": "LLY",
-      "fullName": "Eli Lilly and Company",
-      "sector": "Healthcare",
-      "currentPrice": "$1085.19",
-      "status": "active",
-      "tags": [
-        "pharma",
-        "obesity",
-        "metabolic"
-      ],
-      "notes": "Incretin-led growth",
-      "lastRefreshedAt": "2026-03-07T06:12:49.926Z"
-    },
-    {
-      "symbol": "MAR",
-      "fullName": "Marriott International",
-      "sector": "Hotels",
-      "currentPrice": "$324.91",
-      "status": "active",
-      "tags": [
-        "asset-light",
-        "travel"
-      ],
-      "notes": "Strong pipeline expansion",
-      "lastRefreshedAt": "2026-03-07T06:12:49.926Z"
-    },
-    {
-      "symbol": "HLT",
-      "fullName": "Hilton Worldwide",
-      "sector": "Hotels",
-      "currentPrice": "$298.33",
-      "status": "active",
-      "tags": [
-        "franchise",
-        "lifestyle"
-      ],
-      "notes": "Buyback support",
-      "lastRefreshedAt": "2026-03-07T06:12:49.926Z"
-    }
-  ]
+    { "symbol": "NVDA", "fullName": "NVIDIA Corporation", "sector": "AI Accelerators", "category": "ai-hyperscalers", "currentPrice": "$892.00", "status": "active", "tags": ["GPU", "AI accelerator", "data center", "CUDA"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "MSFT", "fullName": "Microsoft Corporation", "sector": "Cloud / AI Platform", "category": "ai-hyperscalers", "currentPrice": "$415.00", "status": "active", "tags": ["Azure", "OpenAI", "Copilot", "cloud"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "GOOGL", "fullName": "Alphabet Inc.", "sector": "Cloud / AI Platform", "category": "ai-hyperscalers", "currentPrice": "$168.00", "status": "active", "tags": ["Google Cloud", "Gemini", "TPU"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "META", "fullName": "Meta Platforms Inc.", "sector": "Social AI", "category": "ai-hyperscalers", "currentPrice": "$540.00", "status": "active", "tags": ["Llama", "MTIA chip", "ad AI"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "AMZN", "fullName": "Amazon.com Inc.", "sector": "Cloud / AI Platform", "category": "ai-hyperscalers", "currentPrice": "$195.00", "status": "active", "tags": ["AWS", "Trainium", "Bedrock"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "AAPL", "fullName": "Apple Inc.", "sector": "Consumer AI / Hardware", "category": "ai-hyperscalers", "currentPrice": "$195.00", "status": "active", "tags": ["Apple Intelligence", "M-series", "on-device AI"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "TSLA", "fullName": "Tesla Inc.", "sector": "Autonomous / Robotics", "category": "ai-hyperscalers", "currentPrice": "$280.00", "status": "active", "tags": ["FSD", "Dojo", "Optimus"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "PLTR", "fullName": "Palantir Technologies", "sector": "Enterprise AI", "category": "chokepoints", "currentPrice": "$87.00", "status": "active", "tags": ["AIP", "government AI", "defense"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "TEM", "fullName": "Tempus AI", "sector": "Clinical AI", "category": "chokepoints", "currentPrice": "$38.00", "status": "active", "tags": ["genomics", "oncology AI"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "CRSP", "fullName": "CRISPR Therapeutics AG", "sector": "Gene Editing / Biotech", "category": "ai-software", "currentPrice": "$48.00", "status": "active", "tags": ["CASGEVY", "gene editing"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "COIN", "fullName": "Coinbase Global Inc.", "sector": "Crypto / Web3", "category": "ai-software", "currentPrice": "$200.00", "status": "active", "tags": ["crypto exchange", "Base L2"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "ROKU", "fullName": "Roku Inc.", "sector": "Connected TV / Ad AI", "category": "ai-software", "currentPrice": "$58.00", "status": "active", "tags": ["CTV", "ad targeting AI"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "AVGO", "fullName": "Broadcom Inc.", "sector": "Custom ASIC / Networking", "category": "semis", "currentPrice": "$196.00", "status": "active", "tags": ["custom ASIC", "XPU", "networking"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "AMD", "fullName": "Advanced Micro Devices", "sector": "Semiconductors", "category": "semis", "currentPrice": "$125.00", "status": "active", "tags": ["MI300X", "EPYC", "AI GPU"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "ARM", "fullName": "Arm Holdings plc", "sector": "CPU IP / Licensing", "category": "semis", "currentPrice": "$110.00", "status": "active", "tags": ["CPU IP", "AI edge", "royalties"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "TSM", "fullName": "Taiwan Semiconductor Manufacturing Co.", "sector": "Foundry", "category": "semis", "currentPrice": "$175.00", "status": "active", "tags": ["foundry", "CoWoS packaging", "3nm"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "ASML", "fullName": "ASML Holding N.V.", "sector": "Chip Equipment", "category": "semis", "currentPrice": "$700.00", "status": "active", "tags": ["EUV lithography", "High-NA EUV"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "SMCI", "fullName": "Super Micro Computer Inc.", "sector": "AI Server Systems", "category": "semis", "currentPrice": "$35.00", "status": "active", "tags": ["AI server", "GPU server", "liquid cooling"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "MRVL", "fullName": "Marvell Technology Group", "sector": "Custom ASIC / Networking", "category": "semis", "currentPrice": "$68.00", "status": "active", "tags": ["custom ASIC", "800G", "AI interconnect"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "MU", "fullName": "Micron Technology", "sector": "Memory / HBM", "category": "semis", "currentPrice": "$95.00", "status": "active", "tags": ["HBM", "DRAM", "AI memory"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "COHR", "fullName": "Coherent Corp.", "sector": "Optical Components", "category": "cpo-light", "currentPrice": "$72.00", "status": "active", "tags": ["EML", "CPO", "InP", "NVIDIA partner"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "LITE", "fullName": "Lumentum Holdings Inc.", "sector": "Optical Components", "category": "cpo-light", "currentPrice": "$60.00", "status": "active", "tags": ["EML laser", "200G per lane", "CPO"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "AAOI", "fullName": "Applied Optoelectronics Inc.", "sector": "Optical Components", "category": "cpo-light", "currentPrice": "$14.00", "status": "active", "tags": ["CW laser", "400mW pump", "CPO SiPh"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "SIVE", "fullName": "Sivers Semiconductors AB (OTC: SIVR)", "sector": "InP Laser Design", "category": "cpo-light", "currentPrice": "SEK 12.50", "status": "active", "tags": ["InP DFB laser", "CPO", "Win Semi", "OTC"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "TTMI", "fullName": "TTM Technologies Inc.", "sector": "PCB Manufacturing", "category": "pcb-ccl", "currentPrice": "$22.00", "status": "active", "tags": ["PCB", "AI server board", "high layer count"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "ROG", "fullName": "Rogers Corporation", "sector": "CCL Materials", "category": "pcb-ccl", "currentPrice": "$105.00", "status": "active", "tags": ["CCL", "low-loss laminate", "HVLP copper foil"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "SANM", "fullName": "Sanmina Corporation", "sector": "EMS / PCBA", "category": "pcb-ccl", "currentPrice": "$62.00", "status": "active", "tags": ["PCBA", "system integration", "data center EMS"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "ALRIB", "fullName": "Riber S.A. (Euronext: ALRIB)", "sector": "MBE Equipment", "category": "chokepoints", "currentPrice": "€3.80", "status": "active", "tags": ["MBE equipment", "InP epi", "CPO upstream", "non-US"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "AXTI", "fullName": "AXT Inc.", "sector": "Compound Semiconductor Substrates", "category": "chokepoints", "currentPrice": "$5.50", "status": "active", "tags": ["InP substrate", "GaAs", "CPO materials"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "RCL", "fullName": "Royal Caribbean Group", "sector": "Travel & Leisure", "category": "watchlist", "currentPrice": "$195.00", "status": "active", "tags": ["cruise", "global"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "LLY", "fullName": "Eli Lilly and Company", "sector": "Healthcare / Pharma", "category": "watchlist", "currentPrice": "$750.00", "status": "active", "tags": ["pharma", "obesity", "GLP-1"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "MAR", "fullName": "Marriott International", "sector": "Hotels", "category": "watchlist", "currentPrice": "$245.00", "status": "active", "tags": ["asset-light", "travel"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" },
+    { "symbol": "HLT", "fullName": "Hilton Worldwide", "sector": "Hotels", "category": "watchlist", "currentPrice": "$190.00", "status": "active", "tags": ["franchise", "lifestyle"], "lastRefreshedAt": "2026-04-14T00:00:00.000Z" }
+  ],
+  "taiwanReferenceOnly": [
+    { "symbol": "3105.TPEX", "fullName": "Win Semiconductors", "note": "InP/GaAs foundry, Sivers manufacturing partner. No Finnhub coverage." },
+    { "symbol": "2455.TW", "fullName": "Visual Photonics", "note": "InP/GaAs epi wafer supplier. No Finnhub coverage." },
+    { "symbol": "268A.T", "fullName": "Rigaku Holdings", "note": "X-ray inspection equipment for semiconductor process control." },
+    { "symbol": "5289.TPEX", "fullName": "Innodisk", "note": "Embedded memory and CXL memory expansion for AI servers." }
+  ],
+  "lastUpdated": "2026-04-14T00:00:00Z"
 }

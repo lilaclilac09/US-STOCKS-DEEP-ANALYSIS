@@ -1,6 +1,7 @@
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.VITE_RESEND_API_KEY);
+// Note: server-side env vars must NOT have VITE_ prefix
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req: any, res: any) {
   if (req.method !== 'POST') return res.status(405).end();
