@@ -20,7 +20,7 @@ export async function fetchStocks(): Promise<StockData[]> {
   }
 
   // Static fallback: import from constants
-  const { STOCKS } = await import('../../constants');
+  const { STOCKS } = await import('../constants');
   return STOCKS;
 }
 
