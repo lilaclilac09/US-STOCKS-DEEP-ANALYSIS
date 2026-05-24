@@ -33,7 +33,7 @@
 
 ## 🔧 Operational Maintenance
 - [ ] Monitor GitHub Actions workflows for failures
-- [ ] Check `OPERATIONS.md` incident handling guide if any workflow fails
+- [ ] Check `operations.md` incident handling guide if any workflow fails
 - [ ] Example: enable a source for automated pulls:
   - `npm run content -- enable-source --id fmp`
   - `git add . && git commit -m "ops: enable FMP price feed" && git push`
@@ -56,11 +56,11 @@
 
 ## 📚 Documentation
 - [ ] Review and test all docs:
-  - [ ] `DEPLOYMENT.md` — deployment cookbook
-  - [ ] `WORKFLOW.md` — day-to-day change workflow
-  - [ ] `CONTENT_WORKFLOW.md` — content governance
-  - [ ] `AGENT_WORKFLOW.md` — agent/copilot integration
-  - [ ] `OPERATIONS.md` — incident runbook
+  - [ ] `deployment.md` — deployment cookbook
+  - [ ] `workflow.md` — day-to-day change workflow
+  - [ ] `content-workflow.md` — content governance
+  - [ ] `agent-workflow.md` — agent/copilot integration
+  - [ ] `operations.md` — incident runbook
 - [ ] Add troubleshooting FAQ section
 
 ## 🎯 Agent/Copilot Integration
