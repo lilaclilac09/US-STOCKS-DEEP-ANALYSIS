@@ -82,7 +82,7 @@ payload/
 **Created Files**
 1. `.todos.md` - Comprehensive checklist (8 phases, 50+ steps)
 2. `payload/README.md` - Backend setup guide
-3. `PAYLOADCMS_IMPLEMENTATION.md` - This summary
+3. `payloadcms-implementation.md` - This summary
 
 **Updated Files**
 1. `App.tsx` - Payload API integration + fallback
@@ -206,7 +206,7 @@ Expected:
 - To-Do Checklist: `.todos.md`
 - Backend Guide: `payload/README.md`
 - Migration Plan: `/memories/session/plan.md`
-- This Summary: `PAYLOADCMS_IMPLEMENTATION.md`
+- This Summary: `payloadcms-implementation.md`
 
 ---
 

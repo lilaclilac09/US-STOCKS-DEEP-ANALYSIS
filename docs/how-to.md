@@ -247,12 +247,12 @@ npm run dev
 ## Getting Help
 
 **Documentation:**
-- `DEPLOYMENT.md` — Full deployment runbook
-- `WORKFLOW.md` — Day-to-day change workflow
-- `CONTENT_WORKFLOW.md` — Content governance rules
-- `AGENT_WORKFLOW.md` — Agent integration guide
-- `OPERATIONS.md` — Incident handling
-- `TODO.md` — Launch checklist
+- `deployment.md` — Full deployment runbook
+- `workflow.md` — Day-to-day change workflow
+- `content-workflow.md` — Content governance rules
+- `agent-workflow.md` — Agent integration guide
+- `operations.md` — Incident handling
+- `todo.md` — Launch checklist
 
 **Common Issues:**
 - Build errors → Check `npm run validate:data` output

@@ -98,4 +98,4 @@ The pipeline automatically fetches and updates equity fundamentals and cislunar 
 ## Notes
 - For major updates, open a PR first.
 - Keep each commit focused (company update vs source update vs docs).
-- If data refresh workflow fails, check `OPERATIONS.md` incident section.
+- If data refresh workflow fails, check `operations.md` incident section.

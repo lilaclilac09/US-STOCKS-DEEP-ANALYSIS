@@ -9,9 +9,9 @@ This repository supports future coding agents (Copilot/OpenClaw-style) using con
 
 ## Allowed Edit Targets
 - `data/*.json`
-- `WORKFLOW.md`
-- `CONTENT_WORKFLOW.md`
-- `OPERATIONS.md`
+- `workflow.md`
+- `content-workflow.md`
+- `operations.md`
 - `.github/workflows/*.yml`
 - `scripts/*.mjs`
 

@@ -149,7 +149,7 @@ npm run payload:dev
 
 Once this is working:
 1. Read `.todos.md` for the full implementation plan
-2. Check `PAYLOADCMS_IMPLEMENTATION.md` for architecture details
+2. Check `payloadcms-implementation.md` for architecture details
 3. Continue with Phase 3 (price refresh automation)
 
 ---
@@ -181,6 +181,6 @@ If you see companies loading in the browser and `"✓ Loaded data from Payload C
 For questions, check:
 - `.todos.md` - Detailed checklist
 - `payload/README.md` - Backend docs  
-- `PAYLOADCMS_IMPLEMENTATION.md` - Full architecture
+- `payloadcms-implementation.md` - Full architecture
 
 🎉 **Congrats! PayloadCMS is running locally.**
