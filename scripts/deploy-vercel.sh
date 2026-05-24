@@ -1,6 +1,6 @@
 #!/bin/bash
 # 自动化 Vercel 部署脚本
-# 用法：sh deploy-vercel.sh
+# 用法：sh scripts/deploy-vercel.sh
 
 set -e
 
