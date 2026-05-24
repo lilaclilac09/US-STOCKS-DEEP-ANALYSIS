@@ -22,14 +22,22 @@
     "deploy:pages": "npm run build:prod",
     "payload:dev": "cd payload && npm run dev",
     "migrate:data": "node scripts/migrate-to-payload.mjs",
-    "setup:payload": "cd payload && npm install && cp .env.example .env.local"
+    "setup:payload": "cd payload && npm install && cp .env.example .env.local",
+    "switch:real": "echo '修改 src/services/dataService.ts 中的 currentMode = real 即可'"
   },
   "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
     "@google/genai": "^1.35.0",
+    "@headlessui/react": "^2.2.9",
+    "@heroicons/react": "^2.2.0",
     "@supabase/supabase-js": "^2.99.1",
     "axios": "^1.13.6",
+    "lightweight-charts": "^5.1.0",
     "react": "^19.2.3",
-    "react-dom": "^19.2.3"
+    "react-dom": "^19.2.3",
+    "react-hot-toast": "^2.6.0"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",

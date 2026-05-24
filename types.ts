@@ -18,6 +18,15 @@ export interface Indicators {
   buildup?: string;
   pipeline?: string;
   buyback?: string;
+  [key: string]: string | undefined;
+}
+
+export interface CandleData {
+  time: string;
+  open: number;
+  high: number;
+  low: number;
+  close: number;
 }
 
 export interface StockData {
@@ -28,6 +37,12 @@ export interface StockData {
   indicators: Indicators;
   latestDevelopments: string[];
   currentPrice: string;
+  category?: string;
+  thesisExplainer?: string;
+  thesisImage?: string;
+  tags?: string[];
+  klineData?: CandleData[];
+  livePriceFetched?: boolean;
 }
 
 export interface CisLunarCompany {

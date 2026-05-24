@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { createChart, IChartApi } from 'lightweight-charts';
+import { createChart, IChartApi, CandlestickSeries } from 'lightweight-charts';
 
 interface Candle {
   time: string;
@@ -28,9 +28,9 @@ const MiniKLineChart: React.FC<Props> = ({ data, height = 72, width = 160 }) => 
       grid: { vertLines: { visible: false }, horzLines: { visible: false } },
       timeScale: { visible: false },
       rightPriceScale: { visible: false },
-      crosshair: { visible: false },
+      crosshair: { mode: 0 }, // 0 = CrosshairMode.Normal, hides on small charts
     });
-    const candleSeries = chart.addCandlestickSeries({
+    const candleSeries = chart.addSeries(CandlestickSeries, {
       upColor: '#22c55e',
       downColor: '#ef4444',
       borderVisible: false,

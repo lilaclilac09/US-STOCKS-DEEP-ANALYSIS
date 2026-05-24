@@ -27,13 +27,29 @@
 
 This is a Vite + React + TypeScript app for US growth-stock analysis and cislunar ecosystem mapping.
 
+
+### 环境变量（纯静态版）
+
+本项目现在是**纯静态展示**，**不需要任何 API key**！
+
+以后你要接入其他数据源（如 Polygon.io、Finnhub 等），只需：
+1. 在 `.env.local` 添加你的 key（示例见下面）
+2. 修改 `src/services/dataService.ts` 中的 `fetchRealData()` 函数
+
+.env.example（复制改名成 .env.local）
+```
+VITE_POLYGON_API_KEY=your_polygon_key_here
+VITE_FINNHUB_API_KEY=your_finnhub_key_here
+VITE_YAHOO_API_KEY=your_yahoo_key_here
+# 其他数据中心 key 随便加
+```
+
 ## Local Run
 
 **Prerequisites:** Node.js 20+
 
 1. Install dependencies: `npm install`
-2. Set `GEMINI_API_KEY` in `.env.local`
-3. Start development server: `npm run dev`
+2. Start development server: `npm run dev`
 
 ## Production Target
 
@@ -74,4 +90,4 @@ CI and scheduled automation files are in `.github/workflows/`:
 
 ## Security Note
 
-`GEMINI_API_KEY` is currently injected into the frontend build for speed. This is convenient but not secure for high-risk production workloads. See `OPERATIONS.md` for migration guidance to a backend proxy.
+

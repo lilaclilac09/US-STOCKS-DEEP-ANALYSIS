@@ -5,7 +5,7 @@ Deploy this app to GitHub Pages and serve it from `https://finance.aileena.xyz` 
 
 ## Pre-Deploy Checklist
 - `npm install`
-- `.env.local` has `GEMINI_API_KEY`
+
 - `npm run validate:data`
 - `npm run build:prod`
 
@@ -50,4 +50,4 @@ Wait for propagation, then verify:
 - Confirm Pages redeploy succeeded.
 
 ## Known Risk
-`GEMINI_API_KEY` is injected at frontend build-time. This is fast for launch, but key exposure risk exists. Track mitigation in `OPERATIONS.md`.
+
