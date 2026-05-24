@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://finance.aileena.xyz/schema/sources.schema.json",
+  "title": "Data sources registry",
+  "description": "External data providers the app pulls from or plans to pull from. Lives at data/sources.json.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["sources"],
+  "properties": {
+    "sources": {
+      "type": "array",
+      "description": "Each entry must have a unique id.",
+      "items": { "$ref": "#/$defs/Source" }
+    }
+  },
+  "$defs": {
+    "Source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "type", "endpoint", "refreshCron", "enabled", "status", "auth", "apiKeyEnv", "mapping", "healthNotes"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9_-]*$",
+          "description": "Stable machine identifier. Lowercase, snake_case or kebab-case."
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "type": "string",
+          "description": "What this source provides. Observed: 'price_and_fundamentals', 'daily_prices'."
+        },
+        "endpoint": {
+          "type": "string",
+          "format": "uri"
+        },
+        "refreshCron": {
+          "type": "string",
+          "description": "POSIX cron expression for the refresh schedule.",
+          "pattern": "^[\\d\\*,\\-/]+\\s+[\\d\\*,\\-/]+\\s+[\\d\\*,\\-/]+\\s+[\\d\\*,\\-/]+\\s+[\\d\\*,\\-/]+$"
+        },
+        "enabled": {
+          "type": "boolean",
+          "description": "Whether scheduled refreshes should run. Typically false while status is 'planned'."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["active", "planned", "deprecated"]
+        },
+        "auth": {
+          "type": "string",
+          "enum": ["none", "apiKey", "oauth", "basic"]
+        },
+        "apiKeyEnv": {
+          "type": "string",
+          "description": "Environment variable name that holds the API key. May be empty string when auth is 'none'."
+        },
+        "mapping": {
+          "type": "object",
+          "description": "Provider-specific field mapping from the source response to our internal fields. Keys and values are free-form strings.",
+          "additionalProperties": { "type": "string" }
+        },
+        "healthNotes": {
+          "type": "string",
+          "description": "Human-readable operational notes (rate-limit caveats, setup steps, etc.)."
+        }
+      }
+    }
+  }
+}

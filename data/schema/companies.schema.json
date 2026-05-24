@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://finance.aileena.xyz/schema/companies.schema.json",
+  "title": "Companies dataset",
+  "description": "The equity universe tracked by the app. Lives at data/companies.json.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["companies"],
+  "properties": {
+    "companies": {
+      "type": "array",
+      "description": "Primary tracked companies. Each entry must have a unique symbol.",
+      "items": { "$ref": "#/$defs/Company" }
+    },
+    "taiwanReferenceOnly": {
+      "type": "array",
+      "description": "Reference-only entries (no Finnhub coverage, not surfaced as a card). Symbol uniqueness is not enforced against the main companies array.",
+      "items": { "$ref": "#/$defs/ReferenceCompany" }
+    },
+    "lastUpdated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 timestamp of the last refresh of this file."
+    }
+  },
+  "$defs": {
+    "Company": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["symbol", "fullName", "sector", "category", "currentPrice", "status", "tags", "lastRefreshedAt"],
+      "properties": {
+        "symbol": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Ticker symbol. Uppercase. May include exchange suffix for non-US listings."
+        },
+        "fullName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sector": {
+          "type": "string",
+          "description": "Free-form descriptive sector (e.g. 'AI Accelerators', 'Memory / HBM')."
+        },
+        "category": {
+          "type": "string",
+          "description": "Grouping for UI cards. Observed values: ai-hyperscalers, chokepoints, ai-software, semis, cpo-light, pcb-ccl, watchlist."
+        },
+        "currentPrice": {
+          "type": "string",
+          "description": "Display string including currency prefix or suffix (e.g. '$892.00', 'SEK 12.50', '€3.80'). Stored as string because format varies by listing."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["active", "inactive", "delisted", "suspended"]
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "lastRefreshedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "ReferenceCompany": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["symbol", "fullName", "note"],
+      "properties": {
+        "symbol": { "type": "string", "minLength": 1 },
+        "fullName": { "type": "string", "minLength": 1 },
+        "note": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}
