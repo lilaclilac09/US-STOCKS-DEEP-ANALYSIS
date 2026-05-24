@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://finance.aileena.xyz/schema/indexes.schema.json",
+  "title": "Indexes dataset",
+  "description": "Benchmark indexes used for comparison. Lives at data/indexes.json.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["indexes"],
+  "properties": {
+    "indexes": {
+      "type": "array",
+      "description": "Each entry must have a unique id.",
+      "items": { "$ref": "#/$defs/Index" }
+    }
+  },
+  "$defs": {
+    "Index": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "provider", "status", "description"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9_-]*$",
+          "description": "Stable machine identifier. Lowercase, no spaces."
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "provider": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Index publisher (e.g. 'SPDJI', 'Nasdaq', 'FTSE Russell')."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["tracked", "watch", "removed"],
+          "description": "tracked = surfaced in UI; watch = monitored, not surfaced; removed = retained for history."
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}
