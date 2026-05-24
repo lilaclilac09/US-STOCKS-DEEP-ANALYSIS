@@ -1,93 +1,80 @@
-# Supabase 数据库表结构建议
-
-## 1. watchlist（自选股）
-| 字段名   | 类型      | 说明         |
-|----------|-----------|--------------|
-| id       | int8      | 主键         |
-| symbol   | text      | 股票代码     |
-| meta     | jsonb     | 其他元数据   |
-| order    | int4      | 排序         |
-| created_at | timestamptz | 创建时间 |
-
-## 2. stock_cache（行情与指标缓存）
-| 字段名   | 类型      | 说明         |
-|----------|-----------|--------------|
-| id       | int8      | 主键         |
-| symbol   | text      | 股票代码     |
-| data     | jsonb     | 缓存内容     |
-| updated_at | timestamptz | 更新时间 |
-
----
-请在 Supabase 控制台建表，字段可根据实际 UI 需求扩展。
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
-
 # US Stocks Deep Analysis
 
-This is a Vite + React + TypeScript app for US growth-stock analysis and cislunar ecosystem mapping.
+A Vite + React + TypeScript app for US growth-stock analysis, AI-assisted research, watchlist workflows, and cislunar (lunar economy) ecosystem mapping.
 
+## Live
 
-### 环境变量（纯静态版）
+- Production: <https://finance.aileena.xyz>
 
-本项目现在是**纯静态展示**，**不需要任何 API key**！
+## Features
 
-以后你要接入其他数据源（如 Polygon.io、Finnhub 等），只需：
-1. 在 `.env.local` 添加你的 key（示例见下面）
-2. 修改 `src/services/dataService.ts` 中的 `fetchRealData()` 函数
+- Stock cards with fundamentals, indicators, KLine charts, and price alerts
+- Watchlist with drag-and-drop ordering, category grouping, and per-symbol notes
+- Cislunar ecosystem map: tier 1/2/3 space companies with TRL and risk profiles
+- Optional PayloadCMS backend for editable content (auto-falls back to local JSON when offline)
+- Data refresh via Python + Node scripts (fundamentals, prices, generated markdown)
 
-.env.example（复制改名成 .env.local）
+## Local run
+
+Requires Node.js 20+.
+
+```bash
+npm install
+npm run dev          # frontend only — Vite on :3000
+# or
+npm run dev:all      # frontend + PayloadCMS backend together
 ```
-VITE_POLYGON_API_KEY=your_polygon_key_here
-VITE_FINNHUB_API_KEY=your_finnhub_key_here
-VITE_YAHOO_API_KEY=your_yahoo_key_here
-# 其他数据中心 key 随便加
+
+Full local-dev walkthrough (PayloadCMS, fallback verification, admin UI): see [docs/quickstart.md](docs/quickstart.md).
+
+## Environment
+
+Copy `.env.example` to `.env.local` and fill in only what you need.
+
+| Var | Purpose | Required |
+|-----|---------|----------|
+| `VITE_ACTIVE_DATA_PROVIDER` | `mock` (default) / `polygon` / `finnhub` / `alphavantage` / `yahoo` | yes — defaults to `mock` |
+| `VITE_POLYGON_API_KEY` / `VITE_FINNHUB_API_KEY` / `VITE_ALPHAVANTAGE_API_KEY` / `VITE_YAHOO_API_KEY` | Provider-specific price data | only the one you select |
+| `VITE_SUPABASE_URL` / `VITE_SUPABASE_ANON_KEY` | Watchlist + stock cache persistence | only if using Supabase |
+| `VITE_RESEND_API_KEY` | Outbound email for price alerts (server-side via `api/send-alert-email.ts`) | only if using alerts |
+
+## Data
+
+Content lives in `data/`:
+
+- `data/companies.json` — equity universe (fundamentals, indicators, narrative)
+- `data/indexes.json` — index definitions
+- `data/sources.json` — data source registry
+
+Tooling:
+
+```bash
+npm run validate:data         # schema-validate JSON content
+npm run content -- --help     # admin CLI for content edits
+npm run update:all            # python refreshers (fundamentals + cislunar + markdown)
 ```
 
-## Local Run
+## Deploy
 
-**Prerequisites:** Node.js 20+
+Two supported targets:
 
-1. Install dependencies: `npm install`
-2. Start development server: `npm run dev`
+- **GitHub Pages** at `finance.aileena.xyz` — runbook in [docs/deployment.md](docs/deployment.md)
+- **Vercel** — `vercel.json` plus serverless functions under `api/`; trigger with `./deploy-vercel.sh`
 
-## Production Target
+## Security
 
-This repository is prepared for static hosting on GitHub Pages with a custom domain:
-- `finance.aileena.xyz`
+The app currently bakes `VITE_*` env vars into the static bundle, which means **any value in a `VITE_*` variable is publicly visible** in the deployed JavaScript. Treat this repo as a public demo until the keys are moved behind serverless proxies in `api/`. A full audit will land in `docs/security.md`.
 
-See `DEPLOYMENT.md` for full release and DNS steps.
+## Docs
 
-## Content Management
-
-Structured content and source registry are under `data/`:
-- `data/companies.json`
-- `data/indexes.json`
-- `data/sources.json`
-
-Validate content schema:
-- `npm run validate:data`
-
-Run the admin CLI:
-- `npm run content -- --help`
-
-Workflow docs:
-- **[HOW_TO.md](HOW_TO.md)** — Quick start guide for common tasks
-- `DEPLOYMENT.md` — Full deployment runbook
-- `WORKFLOW.md` — Day-to-day operations
-- `CONTENT_WORKFLOW.md` — Content governance
-- `AGENT_WORKFLOW.md` — Agent integration
-- `OPERATIONS.md` — Incident handling
-- `TODO.md` — Launch checklist
-
-## Automation
-
-CI and scheduled automation files are in `.github/workflows/`:
-- `content-governance.yml`
-- `deploy-pages.yml`
-- `data-refresh.yml`
-- `price-alerts.yml`
-
-## Security Note
-
-
+| Doc | When to read |
+|-----|--------------|
+| [quickstart.md](docs/quickstart.md) | First-time local setup with PayloadCMS |
+| [how-to.md](docs/how-to.md) | Common day-to-day tasks |
+| [deployment.md](docs/deployment.md) | Release runbook |
+| [workflow.md](docs/workflow.md) | Change workflow & branching |
+| [content-workflow.md](docs/content-workflow.md) | Content governance & edit flow |
+| [agent-workflow.md](docs/agent-workflow.md) | AI agent integration notes |
+| [operations.md](docs/operations.md) | Incident handling |
+| [payloadcms-implementation.md](docs/payloadcms-implementation.md) | Backend architecture |
+| [todo.md](docs/todo.md) | Launch checklist |
