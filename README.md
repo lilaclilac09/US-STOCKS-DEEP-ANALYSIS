@@ -59,7 +59,7 @@ npm run update:all            # python refreshers (fundamentals + cislunar + mar
 Two supported targets:
 
 - **GitHub Pages** at `finance.aileena.xyz` — runbook in [docs/deployment.md](docs/deployment.md)
-- **Vercel** — `vercel.json` plus serverless functions under `api/`; trigger with `./deploy-vercel.sh`
+- **Vercel** — `vercel.json` plus serverless functions under `api/`; trigger with `./scripts/deploy-vercel.sh`
 
 ## Security
 
