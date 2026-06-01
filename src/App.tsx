@@ -16,18 +16,41 @@ import ResearchDispatch from './components/ResearchDispatch';
 import { ErrorBoundary } from './ErrorBoundary';
 
 // ─── data service ───────────────────────────────────────────────────────────
+// Normalize a StockData record so optional fields are never undefined.
+// The lean /api/companies payload only ships symbol/fullName/sector/category/
+// currentPrice/tags/status/lastRefreshedAt — StockCard expects indicators,
+// financials, latestDevelopments, mainBusiness to exist. Defaulting here
+// keeps the card render path crash-free regardless of source schema.
+function normalizeStock(s: Partial<StockData> & { symbol: string }): StockData {
+  return {
+    symbol: s.symbol,
+    fullName: s.fullName || s.symbol,
+    mainBusiness: s.mainBusiness || '',
+    financials: s.financials || { revenue: '—', netProfit: '—', cashFlow: '—', period: '—' },
+    indicators: s.indicators || { roic: '', debt: '', currentRatio: '' },
+    latestDevelopments: s.latestDevelopments || [],
+    currentPrice: s.currentPrice || '—',
+    category: s.category,
+    thesisExplainer: s.thesisExplainer,
+    thesisImage: s.thesisImage,
+    tags: s.tags,
+    klineData: s.klineData,
+    livePriceFetched: s.livePriceFetched,
+  };
+}
+
 async function loadStocks(): Promise<StockData[]> {
   try {
     const res = await fetch('/api/companies');
     if (res.ok) {
       const json = await res.json();
-      const docs = (json.docs || json.companies || []) as StockData[];
-      if (docs.length > 0) return docs;
+      const docs = (json.docs || json.companies || []) as Partial<StockData>[];
+      if (docs.length > 0) return docs.map(d => normalizeStock(d as any));
     }
   } catch {
     // fall through to static
   }
-  return STATIC_STOCKS;
+  return STATIC_STOCKS.map(normalizeStock);
 }
 
 // ─── Finnhub price refresh ───────────────────────────────────────────────────
