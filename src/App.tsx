@@ -252,13 +252,13 @@ function MainAppContent() {
               name="Micron Technology"
               sector="Memory / HBM"
               rating="BUY"
-              cmp="$95"
-              bear={{ pt: '$150', delta: '+58%' }}
-              base={{ pt: '$200', delta: '+110%' }}
-              bull={{ pt: '$275', delta: '+190%' }}
-              thesis="Memory is the bottleneck the AI capex story keeps re-discovering one quarter late. DRAM oligopoly discipline is now realized, not aspirational. HBM has decoupled from commodity DRAM — HBM3e contracts sold out through 2026, HBM4 signed at multiples of commodity ASPs. NAND is structurally undersupplied post the Sandisk spin. At ~4.5x EV/FY27E EBITDA, the market is pricing peak cyclical multiples on a structurally re-rating business. That is the mispricing."
+              cmp="$965"
+              bear={{ pt: '$650', delta: '–33%' }}
+              base={{ pt: '$1,100', delta: '+14%' }}
+              bull={{ pt: '$1,500', delta: '+55%' }}
+              thesis="Mark-to-market update post a ~10x trailing-twelve-month re-rate. The memory super-cycle thesis we underwrote in 2024 played out faster than modeled, but the cycle has not finished. HBM3e is sold out through 2026; HBM4 contracts being signed at ASPs we previously modeled as a bull case; Samsung qualification continues to slip; NAND structurally undersupplied. Risk has shifted from thesis-break to multiple compression — and at ~27x FY27E EBITDA, that is now the primary downside vector. The base case is essentially earnings growth × constant multiple, not multiple expansion."
               modelUrl="https://github.com/lilaclilac09/US-STOCKS-DEEP-ANALYSIS/blob/main/content/equities/mu.md"
-              positionNote="Largest single equity weight in personal book. Memory long basket: MU + SNDK + SK Hynix (000660.KS), averaged 2024–2026."
+              positionNote="Largest single equity weight in personal book. Memory long basket: MU + SNDK + SK Hynix (000660.KS), averaged 2024–2026 — basket up ~10x TTM. May 2026 P&L +3x on the HBM4 narrative resetting. Continuing to hold; trim triggers documented in full note."
             />
           </div>
 

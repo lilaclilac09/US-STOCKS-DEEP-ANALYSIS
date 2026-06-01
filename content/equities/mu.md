@@ -2,78 +2,74 @@
 ticker: MU
 name: Micron Technology
 updated: 2026-06-01
-close_price: $95.00
+close_price: $964.75
 sector: Memory / HBM
-rating: BUY
-pt_bear: $150
-pt_base: $200
-pt_bull: $275
+rating: BUY (post-mark-to-market)
+pt_bear: $650
+pt_base: $1100
+pt_bull: $1500
 horizon: 12-month
 manual_curated: true
-revenue_fy26e: $43.5B
-ebitda_fy26e: $19.5B
-ebitda_fy27e: $24.0B
+revenue_fy27e: $75B
+ebitda_fy27e: $40B
+ebitda_fy28e: $50B
 wacc: 10.3%
 analyst: Aileen Xu
 ---
 
-# Micron Technology (MU) — Initiating Coverage
+# Micron Technology (MU) — Mark-to-Market Coverage Update
 
-**Rating: BUY** &nbsp;|&nbsp; **PT (12-mo): Bear $150 / Base $200 / Bull $275** &nbsp;|&nbsp; **CMP: $95** &nbsp;|&nbsp; **Date: 2026-06-01**
+**Rating: BUY (post-mark-to-market)** &nbsp;|&nbsp; **PT (12-mo): Bear $650 / Base $1,100 / Bull $1,500** &nbsp;|&nbsp; **CMP: $965** &nbsp;|&nbsp; **Date: 2026-06-01**
 
 ---
 
 ## 1. Investment Summary
 
-We initiate coverage of Micron Technology (MU) with a **BUY** rating and a base-case 12-month price target of **$200**, implying **+110% upside** from CMP $95. Bear case **$150** (+58%), bull case **$275** (+190%). The asymmetric set-up is the entire trade: even our bear case clears the current price.
+We update coverage of Micron Technology (MU) post a ~10x trailing-twelve-month re-rate. Stock has moved from ~$94 (Jun 2025) to $965 (May 30, 2026); market cap crossed $1.1T this week. The memory super-cycle thesis we underwrote in 2024 has played out faster and harder than modeled — but the cycle has not finished, and consensus is still under-modeling FY27–FY28.
 
-Three structural breaks the consensus model is still digesting:
+We maintain a **BUY** rating with a base-case 12-month price target of **$1,100** (+14% from CMP $965). Bear case **$650** (–33%); bull case **$1,500** (+55%). The asymmetry has narrowed materially vs our prior initiation, but remains long-biased.
 
-1. **DRAM oligopoly discipline is now realized, not aspirational.** The three-player structure (Samsung, SK Hynix, Micron) has held capex discipline across two full upcycle quarters. Combined commodity DRAM bit-supply growth FY24–FY26 is running below trend demand for the first time in two cycles.
+What's changed: HBM3e is fully sold out through 2026, HBM4 supply contracts are being inked at ASPs we previously modeled as a bull case, and Samsung's HBM3e qualification at NVIDIA continues to slip — extending Micron's window as the second source. NAND remains structurally undersupplied.
 
-2. **HBM has decoupled from commodity DRAM.** HBM3e and HBM4 supply contracts are being signed at multiples of commodity DRAM ASPs. Micron's HBM3e qualification at NVIDIA is the rarest second-source position in the memory industry — Samsung's HBM3e qual has slipped repeatedly, leaving Micron as the only Western second-source. We model HBM revenue from low-single-digit billions in FY24 to a **$13B+ segment by FY27**.
-
-3. **NAND is being structurally re-rated post the Sandisk spin.** No greenfield NAND fabs in motion through 2027. ASPs and margins have multi-year room to expand even as bit growth lags demand.
-
-The market still models memory as a commodity cycle. It isn't anymore — it's an oligopoly serving structurally short AI demand, with capex deliberately redirected away from commodity bit growth into HBM and advanced packaging. The re-rate is multi-year, not multi-quarter. At a current EV/FY27E EBITDA of ~4.5x, the market is pricing peak cyclical multiples on a structurally re-rating business — that is the mispricing.
+What's at risk now: multiple compression. At ~27x FY27E EBITDA, MU trades at peak semi multiples on a still-cyclical underlying. The bear case is no longer thesis-break; it's multiple normalization on intact fundamentals.
 
 ---
 
-## 2. Revenue Build (FY ends late August)
+## 2. Revenue Build — Revised Higher (FY ends late August)
 
-| $B segment | FY25E | FY26E | FY27E | FY28E | FY29E |
+| $B segment | FY25A | FY26E | FY27E | FY28E | FY29E |
 |---|---|---|---|---|---|
-| DRAM (ex-HBM) | 20.0 | 22.5 | 24.5 | 25.5 | 26.0 |
-| HBM | 4.5 | 9.0 | 13.0 | 15.5 | 16.5 |
-| NAND | 10.0 | 11.5 | 13.0 | 14.0 | 14.5 |
-| Other | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 |
-| **Total Revenue** | **35.0** | **43.5** | **51.0** | **55.5** | **57.5** |
-| YoY growth | +39% | +24% | +17% | +9% | +4% |
+| DRAM (ex-HBM) | 22.0 | 27.0 | 32.0 | 34.0 | 33.0 |
+| HBM | 6.0 | 14.0 | 22.0 | 30.0 | 32.0 |
+| NAND | 11.5 | 13.5 | 19.5 | 24.5 | 25.0 |
+| Other | 0.5 | 0.5 | 1.5 | 1.5 | 1.5 |
+| **Total Revenue** | **40.0** | **55.0** | **75.0** | **90.0** | **91.5** |
+| YoY growth | +59% | +38% | +36% | +20% | +2% |
 
 **Segment commentary:**
-- **HBM** scales from 13% of FY25 revenue to **25% of FY27** revenue. ASPs ~5x commodity DRAM; gross margin contribution disproportionate. Modeled assuming Micron holds 20–25% HBM share through HBM4.
-- **DRAM ex-HBM** grows at oligopoly-discipline pace (~10% bit growth, ASPs flat-to-up).
-- **NAND** ASP recovery + Sandisk-spin clarity. No new greenfield fabs through 2027.
+- **HBM** scales from 15% of FY25 to **29% of FY27** revenue. HBM3e fully ramped; HBM4 contracts being signed at ASPs >5x commodity DRAM. Modeled assuming Micron holds 20–25% HBM share through HBM4.
+- **DRAM ex-HBM** continues to benefit from oligopoly capex discipline; bit growth lags demand.
+- **NAND** ramp accelerates as Sandisk-spin clarity + no greenfield NAND fabs through 2027 finally translate into ASP expansion. Datacenter SSD adoption is the swing factor.
 
 ---
 
-## 3. P&L Forecast
+## 3. P&L Forecast — Revised Higher
 
-| $B unless noted | FY25E | FY26E | FY27E | FY28E | FY29E |
+| $B unless noted | FY25A | FY26E | FY27E | FY28E | FY29E |
 |---|---|---|---|---|---|
-| Revenue | 35.0 | 43.5 | 51.0 | 55.5 | 57.5 |
-| Gross Profit | 11.0 | 16.5 | 21.4 | 23.3 | 23.6 |
-| **Gross Margin** | **31.4%** | **37.9%** | **42.0%** | **42.0%** | **41.0%** |
-| Operating Income | 6.5 | 11.0 | 15.0 | 16.5 | 16.0 |
-| **Operating Margin** | **18.6%** | **25.3%** | **29.4%** | **29.7%** | **27.8%** |
-| D&A | 7.5 | 8.5 | 9.0 | 9.5 | 10.0 |
-| **EBITDA** | **14.0** | **19.5** | **24.0** | **26.0** | **26.0** |
-| EBITDA Margin | 40.0% | 44.8% | 47.1% | 46.8% | 45.2% |
-| Capex | (14.0) | (13.0) | (12.0) | (11.0) | (10.5) |
-| Capex / Sales | 40.0% | 29.9% | 23.5% | 19.8% | 18.3% |
-| **FCF** | **(1.5)** | **4.5** | **10.0** | **13.5** | **14.0** |
+| Revenue | 40.0 | 55.0 | 75.0 | 90.0 | 91.5 |
+| Gross Profit | 14.0 | 24.0 | 36.0 | 45.0 | 42.0 |
+| **Gross Margin** | **35.0%** | **43.6%** | **48.0%** | **50.0%** | **45.9%** |
+| Operating Income | 9.0 | 18.0 | 29.0 | 38.0 | 32.0 |
+| **Operating Margin** | **22.5%** | **32.7%** | **38.7%** | **42.2%** | **35.0%** |
+| D&A | 8.0 | 9.0 | 11.0 | 12.0 | 12.0 |
+| **EBITDA** | **18.0** | **27.0** | **40.0** | **50.0** | **42.0** |
+| EBITDA Margin | 45.0% | 49.1% | 53.3% | 55.6% | 45.9% |
+| Capex | (14.0) | (15.0) | (14.0) | (13.0) | (12.0) |
+| Capex / Sales | 35.0% | 27.3% | 18.7% | 14.4% | 13.1% |
+| **FCF** | **(2.0)** | **6.5** | **18.5** | **27.0** | **23.0** |
 
-FCF inflects FY26 as the HBM capacity buildout peaks. FY27 onward is the harvest year — capex normalizes while pricing holds.
+FY28 is now the modeled peak. Margin step-up driven by HBM mix (ASPs and operating leverage).
 
 ---
 
@@ -86,91 +82,101 @@ FCF inflects FY26 as the HBM capacity buildout peaks. FY27 onward is the harvest
 | Beta (cyclical semi) | 1.35 |
 | **Cost of equity** | **11.6%** |
 | After-tax cost of debt | 4.0% |
-| D/E ratio | 20% |
-| **WACC** | **10.3%** |
+| D/E ratio | 15% (deleveraged on FCF inflection) |
+| **WACC** | **10.5%** |
 | Terminal growth | 2.5% |
 | Shares outstanding (basic) | 1,115M |
-| Net debt | ~$2B |
+| Net debt | ~$0B (cash builds in FY27+) |
 
 ---
 
 ## 5. DCF Valuation — Bear / Base / Bull
 
-| Case | FY27E EBITDA | Exit EV/EBITDA | EV | Equity | **PT/share** | vs CMP $95 |
+We anchor the 12-month price target on FY28E EBITDA + exit multiple, the cleanest framing given the proximity to the modeled super-cycle peak.
+
+| Case | FY28E EBITDA | Exit EV/EBITDA | EV | Equity | **PT/share** | vs CMP $965 |
 |---|---|---|---|---|---|---|
-| **Bear** | $20B | 7.0x | $140B | $138B | **$150** | **+58%** |
-| **Base** | $24B | 9.0x | $216B | $214B | **$200** | **+110%** |
-| **Bull** | $28B | 11.5x | $322B | $320B | **$275** | **+190%** |
+| **Bear** | $35B | 18.0x | $630B | $630B | **$650** | **–33%** |
+| **Base** | $50B | 22.0x | $1,100B | $1,100B | **$1,100** | **+14%** |
+| **Bull** | $60B | 28.0x | $1,680B | $1,680B | **$1,500** | **+55%** |
 
 ### Case definitions
 
-- **Bear ($150)** — Modest re-rate to historical-mid cyclical multiple. Samsung HBM3e/4 clears NVDA qualification at scale; Micron HBM share dilutes to ~15%. Commodity DRAM cycle inflects mid-FY27. Even in this scenario, we land **+58% above current price** — current EV / FY27 EBITDA at ~4.5x is below any defensible cyclical floor.
+- **Bear ($650)** — DRAM cycle inflects mid-FY27 as Samsung HBM3e/4 clears NVDA qualification at scale; multiple compresses to 18x (long-run cyclical peak) on FY28 EBITDA of $35B. Fundamentals intact but the easy money is gone and momentum positioning unwinds.
 
-- **Base ($200)** — Full re-rate to oligopoly-discipline multiple. Micron holds 20–25% HBM share through HBM4 generation; NAND undersupplied through 2027; HBM4 contracts at modeled ASP. The structural re-rate consensus is still missing.
+- **Base ($1,100)** — HBM4 plays out on the current trajectory; Micron holds 20–25% HBM share; NAND undersupply persists through 2027. FY28 EBITDA of $50B at 22x exit multiple (peer-group leader premium).
 
-- **Bull ($275)** — Multiple expansion + EBITDA upside. Samsung yield slips one more node, freeing more HBM allocation to Micron + SK Hynix. HBM4 supply contracts come in 30–50% above current consensus ASP. NAND ASPs +30% above sell-side through FY28.
+- **Bull ($1,500)** — Super-cycle extends through FY29; HBM5 conversation begins in 2027 on tight HBM4 supply; NAND ASPs +30% above sell-side through FY28. FY28 EBITDA of $60B holds at 28x as multiple does not compress.
 
-### Comps cross-check on Base case
-- Sector median FY27E EV/EBITDA = 8.0x
-- MU FY27E EBITDA = $24B → implied EV $192B → implied PT **$170**
-- DCF base $200 sits 18% above comps median — appropriate premium for HBM 2nd-source positioning that the comps set doesn't fully capture.
+### What's NOT a case
+
+- We do not model a "thesis-break" downside (e.g. cycle turns hard, multiple compresses to 8–10x). That would be a $250–350 PT and would require a structural break we don't see. Flag as a tail risk, not a base/bear case.
 
 ---
 
 ## 6. Comparable Companies Analysis
 
-| Ticker | FY26E Rev | FY26E EBITDA | EV/Sales | EV/EBITDA | Note |
+| Ticker | FY27E Rev | FY27E EBITDA | EV/Sales | EV/EBITDA | Note |
 |---|---|---|---|---|---|
-| **MU** | $43.5B | $19.5B | 2.4x | 5.4x (CMP) | HBM 2nd source |
-| SK Hynix (000660 KS) | ~$63B | ~$32B | 3.3x | 6.5x | HBM lead supplier |
-| Samsung Memory seg (005930 KS) | n/m | n/m | n/m | n/m | Segment-only comp |
-| SNDK | $9B | $2.7B | 1.8x | 5.7x | Pure NAND post-spin |
-| STX | $10B | $3.0B | 2.5x | 8.3x | HDD nearline |
-| WDC | $13B | $3.5B | 2.2x | 8.2x | Hybrid post-spin |
-| KIOX (6600 JP) | $14B | $2.5B | 1.9x | 10.5x | Pure NAND |
-| **Group median** |  |  | **2.4x** | **7.4x** |  |
+| **MU** | $75B | $40B | 14.4x | 27.0x (CMP) | HBM 2nd source, mark-to-market |
+| SK Hynix (000660 KS) | ~$95B | ~$50B | 8.0x | 16.0x | HBM lead supplier, Korean discount |
+| SNDK | $13B | $4.5B | 6.0x | 17.5x | Pure NAND post-spin |
+| STX | $13B | $4.5B | 7.0x | 20.0x | HDD nearline, AI cold tier |
+| WDC | $16B | $5.0B | 6.5x | 21.0x | Hybrid HDD+SSD post-spin |
+| KIOX (6600 JP) | $17B | $4.0B | 4.5x | 19.0x | Pure NAND |
+| **Peer median (ex-MU)** |  |  | **6.8x** | **19.0x** |  |
 
-**Read across:** MU at CMP $95 trades at the lowest EV/EBITDA in the peer set despite having the best mix (HBM exposure + Western HBM 2nd-source positioning). Either the comps universe is mispriced higher, or MU is mispriced lower. We argue MU.
+**Read across:** MU now trades at a meaningful premium to the peer median on every metric. That premium is defensible given (a) HBM 2nd-source positioning, (b) FCF inflection, (c) Korean equity discount on SK Hynix. But the easy "below peer median" arbitrage that drove the trade in 2024–2025 is closed.
+
+**Cross-check on Base case ($1,100):** Applied to FY27E EBITDA $40B, $1,100 implies 27.5x — i.e. holding current multiple on next-year EBITDA. The PT is essentially "earnings growth × constant multiple," not multiple expansion. That is the cleanest BUY framing at this price.
 
 ---
 
 ## 7. Catalysts (next 12 months)
 
-- **MU FQ3 earnings, late June 2026** — watch HBM revenue disclosure and HBM4 contract commentary
-- **HBM4 supply-contract press** around NVIDIA Blackwell-Ultra cycle
+- **MU FQ3 print, late June 2026** — HBM revenue line + HBM4 contract commentary; this is the single largest near-term catalyst
+- **NVIDIA Blackwell-Ultra cycle press around HBM4 supply contracts** (signed at modeled ASP premium)
 - **Samsung Q2 2026 earnings** — HBM yield commentary; positive read-across to MU if slippage continues
-- **Hyperscaler memory capex disclosures** in upcoming earnings season
-- **China commodity DRAM capacity announcements** (negative if accelerated)
-- **MU analyst day** — expected late summer 2026
+- **Hyperscaler memory capex disclosures** — confirming sustained demand at the order-book level
+- **China commodity DRAM capacity announcements** — bear-case trigger if accelerated
+- **MU analyst day** (expected late summer 2026)
 
 ---
 
 ## 8. Key Risks
 
-1. **Samsung HBM3e/HBM4 clears NVDA qualification at scale** → Micron HBM share dilutes from modeled 20–25% to ~15%
-2. **DRAM oligopoly discipline breaks** (one of the three adds multi-fab commodity capacity)
-3. **China commodity DRAM ramp** faster than modeled (subsidized supply)
+1. **Multiple compression** — primary risk at current price; cycle does not need to break for a 25–35% drawdown
+2. **Samsung HBM3e/HBM4 clears NVDA qualification at scale** → Micron HBM share dilutes
+3. **DRAM oligopoly discipline breaks** (one of the three adds multi-fab commodity capacity)
 4. **Hyperscaler capex peaks before FY27** — demand-side compression
 5. **NAND demand softer than modeled** — datacenter SSD adoption slower than expected
-6. **Cyclical multiple compression** if the "structural re-rate" narrative loses consensus before FY27 prints
+6. **China commodity DRAM ramp** faster than modeled (subsidized supply)
+7. **Sentiment / positioning unwind** — at $1.1T market cap, MU is now a crowded long; redemption-driven selling is a discrete risk
 
 ### Mitigants
-- HBM4 contracts already being signed multi-year → forward revenue visibility into 2028
-- Capex discipline now structural to MU's own capital allocation framework (not just market response)
+- HBM4 contracts being signed multi-year → forward revenue visibility into 2028
+- Capex discipline now structural to MU's own capital allocation framework
 - NAND post-spin (SNDK) clarity removes one full vector of dilution narrative
+- Net debt is ~zero; balance sheet absorbs any near-term softness
 
 ---
 
 ## 9. Position & Disclosure
 
-MU sits within a memory long basket (MU + SNDK + SK Hynix 000660.KS) that is the largest single equity weight in our personal book. Built in tranches across 2024–2026 — added on strength, added on weakness — sized for a multi-year re-rate, not a swing trade. May 2026 P&L was concentrated around the HBM4 narrative resetting.
+MU sits within a memory long basket (MU + SNDK + SK Hynix 000660.KS) that is the largest single equity weight in our personal book. Position established 2024–2026 (averaged on strength + weakness). **Trailing 12-month return ~10x at the basket level.** May 2026 P&L was +3x on the position concentrated around the HBM4 narrative resetting.
 
-### Trim triggers
-1. Samsung HBM3e/HBM4 clears NVDA qualification at scale and broadens supply
+### Continuing to hold because
+- The cycle has not yet printed peak EBITDA
+- HBM4 contracts represent forward visibility we do not believe is fully discounted
+- The bear case is multiple compression, not thesis break — and we are sized to ride through it
+
+### Trim triggers (have not yet printed)
+1. Samsung HBM3e/HBM4 clears NVDA qualification at scale and broadens HBM supply
 2. Any of the three DRAM players announces multi-fab commodity DRAM expansion
 3. Hyperscaler storage capex guides flat YoY for two consecutive quarters
+4. EV/FY27E EBITDA breaches 35x (multiple-driven exit)
 
-Until one of those prints, the bottleneck *is* the trade.
+Until one of those prints, we hold and selectively add into mechanical weakness.
 
 ---
 
