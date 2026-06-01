@@ -11,6 +11,8 @@ import CategoryModal from './components/CategoryModal';
 import SortableItem from './components/SortableItem';
 import { AlertProvider, useAlerts } from './contexts/AlertContext';
 import toast, { Toaster } from 'react-hot-toast';
+import FeaturedThesis from './components/FeaturedThesis';
+import ResearchDispatch from './components/ResearchDispatch';
 
 // ─── data service ───────────────────────────────────────────────────────────
 async function loadStocks(): Promise<StockData[]> {
@@ -190,9 +192,12 @@ function MainAppContent() {
       {/* ── Header ── */}
       <header className="bg-slate-900 text-white sticky top-0 z-50 shadow-lg border-b border-slate-800">
         <div className="max-w-6xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-3">
-          <h1 className="text-lg md:text-xl font-black tracking-tighter uppercase">
-            US Stocks <span className="text-indigo-400">Deep Analysis</span>
-          </h1>
+          <div className="flex items-baseline gap-3">
+            <h1 className="text-lg md:text-xl font-black tracking-tighter">
+              Aileen Xu <span className="text-indigo-400">· Equity Research</span>
+            </h1>
+            <a href="https://aileena.xyz" target="_blank" rel="noopener noreferrer" className="hidden md:inline text-[10px] font-mono text-slate-500 hover:text-indigo-400 uppercase tracking-widest">aileena.xyz ↗</a>
+          </div>
           <nav className="flex flex-wrap justify-center gap-1.5 items-center">
             <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
               <SortableContext items={categories.map(c => c.id)} strategy={horizontalListSortingStrategy}>
@@ -226,14 +231,36 @@ function MainAppContent() {
       <Toaster position="top-center" toastOptions={{ duration: 3500 }} />
 
       {/* ── Hero / Search ── */}
-      <div className="bg-slate-900 text-white pt-14 pb-20 px-4">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-3 tracking-tight leading-none">
-            AI Supply Chain <span className="text-indigo-400">Intelligence</span>
-          </h2>
-          <p className="text-slate-400 text-base md:text-lg max-w-2xl mx-auto mb-8">
-            Hyperscalers · Semis · CPO light source · PCB/CCL bottlenecks · Hidden chokepoints
-          </p>
+      <div className="bg-slate-900 text-white pt-12 pb-16 px-4">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10">
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-indigo-400 mb-3">
+              AI Equity Research Terminal
+            </p>
+            <h2 className="text-4xl md:text-5xl font-black mb-3 tracking-tighter leading-none">
+              The AI supply chain, <span className="text-indigo-400">priced.</span>
+            </h2>
+            <p className="text-slate-400 text-base md:text-lg max-w-2xl mx-auto">
+              Memory · HBM · Semis · Optical interconnect · PCB / CCL · Hidden chokepoints. Bear / Base / Bull price targets cross-checked against comps. Companion long-form dispatches at aileena.xyz.
+            </p>
+          </div>
+
+          {/* Featured Coverage Thesis */}
+          <div className="mb-10">
+            <FeaturedThesis
+              ticker="MU"
+              name="Micron Technology"
+              sector="Memory / HBM"
+              rating="BUY"
+              cmp="$95"
+              bear={{ pt: '$150', delta: '+58%' }}
+              base={{ pt: '$200', delta: '+110%' }}
+              bull={{ pt: '$275', delta: '+190%' }}
+              thesis="Memory is the bottleneck the AI capex story keeps re-discovering one quarter late. DRAM oligopoly discipline is now realized, not aspirational. HBM has decoupled from commodity DRAM — HBM3e contracts sold out through 2026, HBM4 signed at multiples of commodity ASPs. NAND is structurally undersupplied post the Sandisk spin. At ~4.5x EV/FY27E EBITDA, the market is pricing peak cyclical multiples on a structurally re-rating business. That is the mispricing."
+              modelUrl="https://github.com/lilaclilac09/US-STOCKS-DEEP-ANALYSIS/blob/main/content/equities/mu.md"
+              positionNote="Largest single equity weight in personal book. Memory long basket: MU + SNDK + SK Hynix (000660.KS), averaged 2024–2026."
+            />
+          </div>
 
           <div className="flex justify-center gap-2 mb-8">
             {(['all', 'stocks', 'space'] as const).map(mode => (
@@ -299,6 +326,9 @@ function MainAppContent() {
 
       {/* ── Main content ── */}
       <main className="max-w-4xl mx-auto px-4 -mt-10 pb-20 relative z-10">
+        {/* Research dispatch strip — always visible at top of main */}
+        <ResearchDispatch />
+
         {viewMode !== 'space' && (
           <div className="space-y-10">
             {displayedStocks.length === 0 && !isAnalyzing && (
@@ -364,8 +394,11 @@ function MainAppContent() {
       </main>
 
       <footer className="border-t border-slate-800 py-8 mt-4">
-        <div className="max-w-5xl mx-auto px-4 text-center text-slate-600 text-xs uppercase tracking-widest">
-          AI Supply Chain Intelligence · Equities & Cis-Lunar Space Economy
+        <div className="max-w-5xl mx-auto px-4 text-center text-slate-600 text-xs uppercase tracking-widest space-y-2">
+          <p>Aileen Xu · AI Equity Research Terminal</p>
+          <p className="normal-case tracking-normal text-slate-700 text-[11px]">
+            Research & long-form dispatches: <a href="https://aileena.xyz" className="text-slate-500 hover:text-indigo-400">aileena.xyz</a> · Code & data: <a href="https://github.com/lilaclilac09/US-STOCKS-DEEP-ANALYSIS" className="text-slate-500 hover:text-indigo-400">github.com/lilaclilac09</a>
+          </p>
         </div>
       </footer>
     </div>
