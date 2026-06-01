@@ -13,6 +13,7 @@ import { AlertProvider, useAlerts } from './contexts/AlertContext';
 import toast, { Toaster } from 'react-hot-toast';
 import FeaturedThesis from './components/FeaturedThesis';
 import ResearchDispatch from './components/ResearchDispatch';
+import { ErrorBoundary } from './ErrorBoundary';
 
 // ─── data service ───────────────────────────────────────────────────────────
 async function loadStocks(): Promise<StockData[]> {
@@ -407,10 +408,12 @@ function MainAppContent() {
 
 export default function App() {
   return (
-    <AlertProvider>
-      <CategoryProvider>
-        <MainAppContent />
-      </CategoryProvider>
-    </AlertProvider>
+    <ErrorBoundary>
+      <AlertProvider>
+        <CategoryProvider>
+          <MainAppContent />
+        </CategoryProvider>
+      </AlertProvider>
+    </ErrorBoundary>
   );
 }
