@@ -12,6 +12,7 @@ import SortableItem from './components/SortableItem';
 import { AlertProvider, useAlerts } from './contexts/AlertContext';
 import toast, { Toaster } from 'react-hot-toast';
 import FeaturedThesis from './components/FeaturedThesis';
+import FeaturedTheme from './components/FeaturedTheme';
 import ResearchDispatch from './components/ResearchDispatch';
 import { ErrorBoundary } from './ErrorBoundary';
 
@@ -267,6 +268,11 @@ function MainAppContent() {
             <p className="text-slate-400 text-base md:text-lg max-w-2xl mx-auto">
               Memory · HBM · Semis · Optical interconnect · PCB / CCL · Hidden chokepoints. Bear / Base / Bull price targets cross-checked against comps. Companion long-form dispatches at aileena.xyz.
             </p>
+          </div>
+
+          {/* Featured Theme — asymmetric tape (B2G + aerospace + contrarian discretionary) */}
+          <div className="mb-6">
+            <FeaturedTheme />
           </div>
 
           {/* Featured Coverage Thesis */}
