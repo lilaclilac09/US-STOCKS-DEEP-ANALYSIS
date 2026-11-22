@@ -4,7 +4,7 @@ A Vite + React + TypeScript app for US growth-stock analysis, AI-assisted resear
 
 ## Live
 
-- Production: <https://finance.aileena.xyz>
+**Status: LIVE** — open <https://finance.aileena.xyz> to browse equity research and switch coverage views.
 
 ## Features
 
